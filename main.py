@@ -30,11 +30,12 @@ def get_scramble():
     
     return " ".join(scramble)
 
+
 def update_scramble(scramble):
     global scramble_text, scramble_text_rect
 
     scramble_text = AnonymousPro_font.render(scramble, True, scramble_text_colour)
-    scramble_text_rect = scramble_text.get_rect(center = (600, 80))
+    scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
 
     screen.blit(scramble_text, scramble_text_rect)
 
@@ -50,7 +51,7 @@ def update_time(solve_time, time_text_colour):
         formatted_time = datetime_solve_time.strftime(f'%{digit_char}S.%f')
 
     time_text = digital_7_font.render(formatted_time[:-4], True, time_text_colour)
-    time_text_rect = time_text.get_rect(center = (650, 350))
+    time_text_rect = time_text.get_rect(center = (screen_width//2, screen_height//2))
 
     screen.blit(time_text, time_text_rect)
 
@@ -67,11 +68,11 @@ def main():
 
         # Check events
         for event in pygame.event.get():
-            if (event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_q):
-                pygame.quit()
-                exit()
-
             if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    exit()
+
                 if event.key == pygame.K_SPACE:
                     if not solving:
                         time_text_colour = (0,221,0)
@@ -117,7 +118,9 @@ if __name__ == "__main__":
     pygame.display.set_caption("TwistTimer")
 
     # Set background
-    screen = pygame.display.set_mode((1200, 700))
+    screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+    screen_width = screen.get_width()
+    screen_height = screen.get_height()
     screen_bg_colour = (0,34,51)
     screen.fill(screen_bg_colour)
 
@@ -125,13 +128,13 @@ if __name__ == "__main__":
     digital_7_font = pygame.font.Font("fonts/digital-7.ttf", 250)
     time_text_colour = "grey"
     time_text = digital_7_font.render(f"{0:.2f}", True, time_text_colour)
-    time_text_rect = time_text.get_rect(center = (600, 350))
+    time_text_rect = time_text.get_rect(center = (screen_width//2, screen_height//2))
 
     # Scramble display
     AnonymousPro_font = pygame.font.Font("fonts/AnonymousPro.ttf", 30)
     scramble_text_colour = "grey"
     scramble = get_scramble()
     scramble_text = AnonymousPro_font.render(scramble, True, scramble_text_colour)
-    scramble_text_rect = scramble_text.get_rect(center = (600, 80))
+    scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
 
     main()

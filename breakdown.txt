@@ -17,6 +17,14 @@ Cube timer:
 
 TODOs:
 - fix font spacing ish
-- format for minutes not only seconds
 - make new icon for pygame window
 - add fullscreen and responsiveness
+- show current session
+- current time and best Time
+- current mo3 and best mo3
+- current ao5 and best ao5
+- ao5 average of 5 under time "-" if not enough yet
+- ao12 average of 12 under time "-" if not enough yet
+- change scramble (previous/next) but obviously cant previous on first solve_time
+- save times on json file with their scrambles
+- save settings on json file
