@@ -18,7 +18,7 @@ Cube timer:
 TODOs:
 - fix font spacing ish
 - make new icon for pygame window
-- add fullscreen and responsiveness
+- are you sure you want to exit popup window
 - show current session
 - current time and best Time
 - current mo3 and best mo3

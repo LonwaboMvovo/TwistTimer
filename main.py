@@ -34,7 +34,7 @@ def get_scramble():
 def update_scramble(scramble):
     global scramble_text, scramble_text_rect
 
-    scramble_text = AnonymousPro_font.render(scramble, True, scramble_text_colour)
+    scramble_text = AnonymousPro_font.render(scramble, True, "grey")
     scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
 
     screen.blit(scramble_text, scramble_text_rect)
@@ -54,6 +54,15 @@ def update_time(solve_time, time_text_colour):
     time_text_rect = time_text.get_rect(center = (screen_width//2, screen_height//2))
 
     screen.blit(time_text, time_text_rect)
+
+
+def update_cube_type():
+    global cube_type_text, cube_type_text_rect
+
+    cube_type_text = AnonymousPro_font_cube_timer.render("3x3x3", True, "white")
+    cube_type_text_rect = cube_type_text.get_rect(center = (screen_width//2, 30))
+
+    screen.blit(cube_type_text, cube_type_text_rect)
 
 
 def main():
@@ -90,10 +99,19 @@ def main():
                         solving = True
                         start_time = time.time()
 
+        # Mouse hover effects
+        if cube_type_text_rect.collidepoint(pygame.mouse.get_pos()):
+            # set the cursor to the hand cursor
+            pygame.mouse.set_cursor(*pygame.cursors.tri_left)
+        else:
+            # set the cursor to the default arrow cursor
+            pygame.mouse.set_cursor(*pygame.cursors.arrow)
+
         if solving:
             current_time = time.time()
             solve_time = current_time - start_time
 
+        update_cube_type()
         update_scramble(scramble)
         update_time(solve_time, time_text_colour)
 
@@ -125,16 +143,20 @@ if __name__ == "__main__":
     screen.fill(screen_bg_colour)
 
     # Time display
-    digital_7_font = pygame.font.Font("fonts/digital-7.ttf", 250)
+    digital_7_font = pygame.font.Font("Fonts/digital-7.ttf", 250)
     time_text_colour = "grey"
     time_text = digital_7_font.render(f"{0:.2f}", True, time_text_colour)
     time_text_rect = time_text.get_rect(center = (screen_width//2, screen_height//2))
 
     # Scramble display
-    AnonymousPro_font = pygame.font.Font("fonts/AnonymousPro.ttf", 30)
-    scramble_text_colour = "grey"
+    AnonymousPro_font = pygame.font.Font("Fonts/AnonymousPro.ttf", 30)
     scramble = get_scramble()
-    scramble_text = AnonymousPro_font.render(scramble, True, scramble_text_colour)
+    scramble_text = AnonymousPro_font.render(scramble, True, "grey")
     scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
+
+    # Cube type display
+    AnonymousPro_font_cube_timer = pygame.font.Font("Fonts/AnonymousPro.ttf", 20)
+    cube_type_text = AnonymousPro_font_cube_timer.render("3x3x3", True, "white")
+    cube_type_text_rect = cube_type_text.get_rect(center = (screen_width//2, 30))
 
     main()
