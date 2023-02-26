@@ -1,5 +1,32 @@
 import pygame
 import time
+import re
+
+from random import choice as random_choice
+
+
+def get_scramble():
+    scramble_moves = ["F", "R", "U", "B", "L", "D", "F2", "R2", "U2", "B2", "L2", "D2", "F'", "R'", "U'", "B'", "L'", "D'"]
+
+    scramble = []
+
+    for _ in range(20):
+        if len(scramble) == 0:
+            scramble.append(random_choice(scramble_moves))
+        else:
+            last_scramble = scramble[-1]
+            last_scramble_type = ''.join(w for w in re.split("["+"\\".join("2'")+"]", last_scramble))
+
+            new_scramble = random_choice(scramble_moves)
+            new_scramble_type = ''.join(w for w in re.split("["+"\\".join("2'")+"]", new_scramble))
+
+            while last_scramble_type == new_scramble_type:
+                new_scramble = random_choice(scramble_moves)
+                new_scramble_type = ''.join(w for w in re.split("["+"\\".join("2'")+"]", new_scramble))
+
+            scramble.append(new_scramble)
+    
+    return " ".join(scramble)
 
 
 def update_time(solve_time, time_text_colour):
