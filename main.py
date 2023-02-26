@@ -2,22 +2,36 @@ import pygame
 import time
 
 
+def time_solve():
+    pass
+
+
 def main():
+    solving = False
+
     while True:
         for event in pygame.event.get():
             if (event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_q):
                 pygame.quit()
                 exit()
-    # print("TwistTimer")
 
-    # input("0.00")
-    # start_time = time.time()
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                if not solving:
+                    solving = True
+                    print("solving...")
+                    start_time = time.time()
+                else:
+                    solving = False
+                    print("finish...")
+                    current_time = time.time()
+                    time_passed = current_time - start_time
+                    print(f'{time_passed:.2f}')
 
-    # input("solve")
-    # end_time = time.time()
+        if solving:
+            current_time = time.time()
+            time_passed = current_time - start_time
+            print(f'{time_passed:.2f}')
 
-    # time_passed = round(end_time - start_time, 2)
-    # print(time_passed)
         # Update screen/display
         pygame.display.update()
         # max set to 60 frames/sec
