@@ -14,3 +14,9 @@ Cube timer:
 - reference cstimer
 - how scramble should look
 - full screen option
+
+TODOs:
+- fix font spacing ish
+- space down just turns font green and ready to start clock
+- space up actually starts clock
+- format for minutes not only seconds
