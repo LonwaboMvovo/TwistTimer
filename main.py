@@ -1,7 +1,9 @@
 import pygame
 import time
 import re
+import datetime
 
+from platform import system
 from random import choice as random_choice
 
 
@@ -29,12 +31,27 @@ def get_scramble():
     return " ".join(scramble)
 
 def update_scramble(scramble):
+    global scramble_text, scramble_text_rect
+
     scramble_text = AnonymousPro_font.render(scramble, True, scramble_text_colour)
+    scramble_text_rect = scramble_text.get_rect(center = (600, 80))
+
     screen.blit(scramble_text, scramble_text_rect)
 
 
 def update_time(solve_time, time_text_colour):
-    time_text = digital_7_font.render(f"{solve_time:.2f}", True, time_text_colour)
+    global time_text, time_text_rect
+
+    datetime_solve_time = datetime.datetime.fromtimestamp(solve_time)
+
+    if int(solve_time) > 60:
+        formatted_time = datetime_solve_time.strftime(f'%{digit_char}M:%S.%f')
+    else:
+        formatted_time = datetime_solve_time.strftime(f'%{digit_char}S.%f')
+
+    time_text = digital_7_font.render(formatted_time[:-4], True, time_text_colour)
+    time_text_rect = time_text.get_rect(center = (650, 350))
+
     screen.blit(time_text, time_text_rect)
 
 
@@ -55,13 +72,13 @@ def main():
                 exit()
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE and not solving:
-                    time_text_colour = (0,221,0)
-                else:
-                    scramble = get_scramble()
+                if event.key == pygame.K_SPACE:
+                    if not solving:
+                        time_text_colour = (0,221,0)
+                    else:
+                        scramble = get_scramble()
             
             if event.type == pygame.KEYUP:
-
                 if event.key == pygame.K_SPACE:
                     if solving:
                         solving = False
@@ -81,14 +98,15 @@ def main():
 
         pygame.display.update()
 
-        # max set to 60 frames/sec
-        clock.tick(60)
-
 
 if __name__ == "__main__":
     # inits bruv
     pygame.init()
-    clock = pygame.time.Clock()
+
+    # Digit character is different for formatting on different systems
+    digit_char = "-"
+    if system() == 'Windows':
+        digit_char = "#"
 
     # Set window icon
     icon_surface = pygame.Surface((32, 32))
@@ -104,7 +122,7 @@ if __name__ == "__main__":
     screen.fill(screen_bg_colour)
 
     # Time display
-    digital_7_font = pygame.font.Font("fonts/digital-7.ttf", 300)
+    digital_7_font = pygame.font.Font("fonts/digital-7.ttf", 250)
     time_text_colour = "grey"
     time_text = digital_7_font.render(f"{0:.2f}", True, time_text_colour)
     time_text_rect = time_text.get_rect(center = (600, 350))

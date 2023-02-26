@@ -17,6 +17,6 @@ Cube timer:
 
 TODOs:
 - fix font spacing ish
-- space down just turns font green and ready to start clock
-- space up actually starts clock
 - format for minutes not only seconds
+- make new icon for pygame window
+- add fullscreen and responsiveness
