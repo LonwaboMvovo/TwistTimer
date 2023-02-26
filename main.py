@@ -2,12 +2,10 @@ import pygame
 import time
 
 
-def time_solve():
-    pass
-
-
 def main():
     solving = False
+
+    solve_time = 0
 
     while True:
         for event in pygame.event.get():
@@ -16,24 +14,28 @@ def main():
                 exit()
 
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                if not solving:
-                    solving = True
-                    print("solving...")
-                    start_time = time.time()
-                else:
+                if solving:
                     solving = False
-                    print("finish...")
                     current_time = time.time()
-                    time_passed = current_time - start_time
-                    print(f'{time_passed:.2f}')
+                    solve_time = current_time - start_time
+                else:
+                    solving = True
+                    start_time = time.time()
 
         if solving:
             current_time = time.time()
-            time_passed = current_time - start_time
-            print(f'{time_passed:.2f}')
+            solve_time = current_time - start_time
+
+        # Clean screen
+        screen.fill(screen_bg_colour)
+
+        # Update time
+        time_text = pixel_type_font.render(f"{solve_time:.2f}", False, "grey")
+        screen.blit(time_text, time_text_rect)
 
         # Update screen/display
         pygame.display.update()
+
         # max set to 60 frames/sec
         clock.tick(60)
 
@@ -45,8 +47,7 @@ if __name__ == "__main__":
 
     # Set window icon
     icon_surface = pygame.Surface((32, 32))
-    icon_surface.fill('light green')
-    # cube_icon = pygame.image.load('images/cube_icon.png')
+    icon_surface.fill('green')
     pygame.display.set_icon(icon_surface)
 
     # Set Window title
@@ -57,4 +58,7 @@ if __name__ == "__main__":
     screen_bg_colour = (0,34,51)
     screen.fill(screen_bg_colour)
 
+    pixel_type_font = pygame.font.Font("font/digital-7.ttf", 300)
+    time_text = pixel_type_font.render(f"{0:.2f}", True, "grey")
+    time_text_rect = time_text.get_rect(center = (600, 350))
     main()
