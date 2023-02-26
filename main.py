@@ -2,11 +2,15 @@ import pygame
 import time
 
 
+def update_time(solve_time, time_text_colour):
+    time_text = pixel_type_font.render(f"{solve_time:.2f}", True, time_text_colour)
+    screen.blit(time_text, time_text_rect)
+
+
 def main():
     global time_text_colour
 
     solving = False
-
     solve_time = 0
 
     while True:
@@ -39,11 +43,8 @@ def main():
         # Clean screen
         screen.fill(screen_bg_colour)
 
-        # Update time
-        time_text = pixel_type_font.render(f"{solve_time:.2f}", False, time_text_colour)
-        screen.blit(time_text, time_text_rect)
+        update_time(solve_time, time_text_colour)
 
-        # Update screen/display
         pygame.display.update()
 
         # max set to 60 frames/sec
