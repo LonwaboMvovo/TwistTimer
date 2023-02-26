@@ -65,6 +65,24 @@ def update_cube_type():
     screen.blit(cube_type_text, cube_type_text_rect)
 
 
+def update_timer_ao5(ao5_time = "-"):
+    global ao5s_text, ao5s_text_rect
+
+    ao5s_text = AnonymousPro_font_aos.render(f"ao5: {ao5_time}", True, aos_text_colour)
+    ao5s_text_rect = ao5s_text.get_rect(midtop = (screen_width//2, screen_height//2 + 120))
+
+    screen.blit(ao5s_text, ao5s_text_rect)
+
+
+def update_timer_ao12(ao12_time = "-"):
+    global ao12s_text, ao12s_text_rect
+
+    ao12s_text = AnonymousPro_font_aos.render(f"ao12: {ao12_time}", True, aos_text_colour)
+    ao12s_text_rect = ao12s_text.get_rect(midtop = (screen_width//2, screen_height//2 + 180))
+
+    screen.blit(ao12s_text, ao12s_text_rect)
+
+
 def main():
     global time_text_colour, scramble
 
@@ -102,10 +120,10 @@ def main():
         # Mouse hover effects
         if cube_type_text_rect.collidepoint(pygame.mouse.get_pos()):
             # set the cursor to the hand cursor
-            pygame.mouse.set_cursor(*pygame.cursors.tri_left)
+            pygame.mouse.set_cursor(pygame.cursors.tri_left)
         else:
             # set the cursor to the default arrow cursor
-            pygame.mouse.set_cursor(*pygame.cursors.arrow)
+            pygame.mouse.set_cursor(pygame.cursors.arrow)
 
         if solving:
             current_time = time.time()
@@ -114,6 +132,8 @@ def main():
         update_cube_type()
         update_scramble(scramble)
         update_time(solve_time, time_text_colour)
+        update_timer_ao5()
+        update_timer_ao12()
 
         pygame.display.update()
 
@@ -158,5 +178,13 @@ if __name__ == "__main__":
     AnonymousPro_font_cube_timer = pygame.font.Font("Fonts/AnonymousPro.ttf", 20)
     cube_type_text = AnonymousPro_font_cube_timer.render("3x3x3", True, "white")
     cube_type_text_rect = cube_type_text.get_rect(center = (screen_width//2, 30))
+
+    # ao5 and ao12 display
+    AnonymousPro_font_aos = pygame.font.Font("Fonts/AnonymousPro.ttf", 60)
+    aos_text_colour = (34,136,221)
+    ao5s_text = AnonymousPro_font_aos.render("ao5: -", True, aos_text_colour)
+    ao12s_text = AnonymousPro_font_aos.render("ao12: -", True, aos_text_colour)
+    ao5s_text_rect = ao5s_text.get_rect(midtop = (screen_width//2, screen_height//2 + 120))
+    ao12s_text_rect = ao12s_text.get_rect(midtop = (screen_width//2, screen_height//2 + 180))
 
     main()
