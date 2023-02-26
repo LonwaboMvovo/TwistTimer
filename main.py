@@ -28,19 +28,26 @@ def get_scramble():
     
     return " ".join(scramble)
 
+def update_scramble(scramble):
+    scramble_text = AnonymousPro_font.render(scramble, True, scramble_text_colour)
+    screen.blit(scramble_text, scramble_text_rect)
+
 
 def update_time(solve_time, time_text_colour):
-    time_text = pixel_type_font.render(f"{solve_time:.2f}", True, time_text_colour)
+    time_text = digital_7_font.render(f"{solve_time:.2f}", True, time_text_colour)
     screen.blit(time_text, time_text_rect)
 
 
 def main():
-    global time_text_colour
+    global time_text_colour, scramble
 
     solving = False
     solve_time = 0
 
     while True:
+        # Clean screen
+        screen.fill(screen_bg_colour)
+
         # Check events
         for event in pygame.event.get():
             if (event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_q):
@@ -50,6 +57,8 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE and not solving:
                     time_text_colour = (0,221,0)
+                else:
+                    scramble = get_scramble()
             
             if event.type == pygame.KEYUP:
 
@@ -67,9 +76,7 @@ def main():
             current_time = time.time()
             solve_time = current_time - start_time
 
-        # Clean screen
-        screen.fill(screen_bg_colour)
-
+        update_scramble(scramble)
         update_time(solve_time, time_text_colour)
 
         pygame.display.update()
@@ -97,9 +104,16 @@ if __name__ == "__main__":
     screen.fill(screen_bg_colour)
 
     # Time display
-    pixel_type_font = pygame.font.Font("font/digital-7.ttf", 300)
+    digital_7_font = pygame.font.Font("fonts/digital-7.ttf", 300)
     time_text_colour = "grey"
-    time_text = pixel_type_font.render(f"{0:.2f}", True, time_text_colour)
+    time_text = digital_7_font.render(f"{0:.2f}", True, time_text_colour)
     time_text_rect = time_text.get_rect(center = (600, 350))
+
+    # Scramble display
+    AnonymousPro_font = pygame.font.Font("fonts/AnonymousPro.ttf", 30)
+    scramble_text_colour = "grey"
+    scramble = get_scramble()
+    scramble_text = AnonymousPro_font.render(scramble, True, scramble_text_colour)
+    scramble_text_rect = scramble_text.get_rect(center = (600, 80))
 
     main()
