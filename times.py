@@ -19,7 +19,10 @@ def update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen
 
 
 def update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao5_time):
-    ao5s_text = AnonymousPro_font_aos.render(f"ao5: {ao5_time:.2f}", True, aos_text_colour)
+    if ao5_time == "-":
+        ao5s_text = AnonymousPro_font_aos.render("ao5: -", True, aos_text_colour)
+    else:
+        ao5s_text = AnonymousPro_font_aos.render(f"ao5: {ao5_time:.2f}", True, aos_text_colour)
     ao5s_text_rect = ao5s_text.get_rect(midtop = (screen_width//2, screen_height//2 + 120))
 
     screen.blit(ao5s_text, ao5s_text_rect)
@@ -28,7 +31,10 @@ def update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, scree
 
 
 def update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao12_time):
-    ao12s_text = AnonymousPro_font_aos.render(f"ao12: {ao12_time:.2f}", True, aos_text_colour)
+    if ao12_time == "-":
+        ao12s_text = AnonymousPro_font_aos.render("ao12: -", True, aos_text_colour)
+    else:
+        ao12s_text = AnonymousPro_font_aos.render(f"ao12: {ao12_time:.2f}", True, aos_text_colour)
     ao12s_text_rect = ao12s_text.get_rect(midtop = (screen_width//2, screen_height//2 + 180))
 
     screen.blit(ao12s_text, ao12s_text_rect)
