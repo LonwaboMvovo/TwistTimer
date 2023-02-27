@@ -94,8 +94,16 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     screen.fill("red", (display_left + 148, display_top + 137, 16, 16))
     screen.fill("red", (display_left + 165, display_top + 137, 16, 16))
     # Blue
-    screen.fill("blue", (display_left + 25 + 53*3, display_top + 50 + 53, 50, 50))
     screen.fill("black", (display_left + 25 + 53*3, display_top + 50 + 53, 50, 50))
+    screen.fill("blue", (display_left + 184, display_top + 103, 16, 16))
+    screen.fill("blue", (display_left + 201, display_top + 103, 16, 16))
+    screen.fill("blue", (display_left + 218, display_top + 103, 16, 16))
+    screen.fill("blue", (display_left + 184, display_top + 120, 16, 16))
+    screen.fill("blue", (display_left + 201, display_top + 120, 16, 16))
+    screen.fill("blue", (display_left + 218, display_top + 120, 16, 16))
+    screen.fill("blue", (display_left + 184, display_top + 137, 16, 16))
+    screen.fill("blue", (display_left + 201, display_top + 137, 16, 16))
+    screen.fill("blue", (display_left + 218, display_top + 137, 16, 16))
     # Yell
     screen.fill("yellow", (display_left + 25 + 53, display_top + 50 + 53*2, 50, 50))
     screen.fill("black", (display_left + 25 + 53, display_top + 50 + 53*2, 50, 50))
