@@ -12,35 +12,29 @@ def update_cube_type(AnonymousPro_font_cube_timer, screen_width, screen):
 def draw_scramble(scramble, screen_width, screen_height, screen):
     cube_state = [
         # Top
-        [["w", "w", "w"],
-            ["w", "w", "w"],
-            ["w", "w", "w"]
-        ],
+        "white", "white", "white",
+        "white", "white", "white",
+        "white", "white", "white",
         # Left
-        [["o", "o", "o"],
-            ["o", "o", "o"],
-            ["o", "o", "o"]
-        ],
+        "orange", "orange", "orange",
+        "orange", "orange", "orange",
+        "orange", "orange", "orange",
         # Front
-        [["g", "g", "g"],
-            ["g", "g", "g"],
-            ["g", "g", "g"]
-        ],
+        "green", "green", "green",
+        "green", "green", "green",
+        "green", "green", "green",
         # Right
-        [["r", "r", "r"],
-            ["r", "r", "r"],
-            ["r", "r", "r"]
-        ],
+        "red", "red", "red",
+        "red", "red", "red",
+        "red", "red", "red",
         # Back
-        [["b", "b", "b"],
-            ["b", "b", "b"],
-            ["b", "b", "b"]
-        ],
+        "blue", "blue", "blue",
+        "blue", "blue", "blue",
+        "blue", "blue", "blue",
         # Bottom
-        [["y", "y", "y"],
-            ["y", "y", "y"],
-            ["y", "y", "y"]
-        ],
+        "yellow", "yellow", "yellow",
+        "yellow", "yellow", "yellow",
+        "yellow", "yellow", "yellow"
     ]
 
     display_left = screen_width - 250
@@ -51,67 +45,67 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
 
     # White
     screen.fill("black", (display_left + 78, display_top + 50, 50, 50))
-    screen.fill("white", (display_left + 78, display_top + 50, 16, 16))
-    screen.fill("white", (display_left + 95, display_top + 50, 16, 16))
-    screen.fill("white", (display_left + 112, display_top + 50, 16, 16))
-    screen.fill("white", (display_left + 78, display_top + 67, 16, 16))
-    screen.fill("white", (display_left + 95, display_top + 67, 16, 16))
-    screen.fill("white", (display_left + 112, display_top + 67, 16, 16))
-    screen.fill("white", (display_left + 78, display_top + 84, 16, 16))
-    screen.fill("white", (display_left + 95, display_top + 84, 16, 16))
-    screen.fill("white", (display_left + 112, display_top + 84, 16, 16))
+    screen.fill(cube_state[0], (display_left + 78, display_top + 50, 16, 16))
+    screen.fill(cube_state[1], (display_left + 95, display_top + 50, 16, 16))
+    screen.fill(cube_state[2], (display_left + 112, display_top + 50, 16, 16))
+    screen.fill(cube_state[3], (display_left + 78, display_top + 67, 16, 16))
+    screen.fill(cube_state[4], (display_left + 95, display_top + 67, 16, 16))
+    screen.fill(cube_state[5], (display_left + 112, display_top + 67, 16, 16))
+    screen.fill(cube_state[6], (display_left + 78, display_top + 84, 16, 16))
+    screen.fill(cube_state[7], (display_left + 95, display_top + 84, 16, 16))
+    screen.fill(cube_state[8], (display_left + 112, display_top + 84, 16, 16))
     # Orange
     screen.fill("black", (display_left + 25, display_top + 103, 50, 50))
-    screen.fill("orange", (display_left + 25, display_top + 103, 16, 16))
-    screen.fill("orange", (display_left + 42, display_top + 103, 16, 16))
-    screen.fill("orange", (display_left + 59, display_top + 103, 16, 16))
-    screen.fill("orange", (display_left + 25, display_top + 120, 16, 16))
-    screen.fill("orange", (display_left + 42, display_top + 120, 16, 16))
-    screen.fill("orange", (display_left + 59, display_top + 120, 16, 16))
-    screen.fill("orange", (display_left + 25, display_top + 137, 16, 16))
-    screen.fill("orange", (display_left + 42, display_top + 137, 16, 16))
-    screen.fill("orange", (display_left + 59, display_top + 137, 16, 16))
+    screen.fill(cube_state[9], (display_left + 25, display_top + 103, 16, 16))
+    screen.fill(cube_state[10], (display_left + 42, display_top + 103, 16, 16))
+    screen.fill(cube_state[11], (display_left + 59, display_top + 103, 16, 16))
+    screen.fill(cube_state[12], (display_left + 25, display_top + 120, 16, 16))
+    screen.fill(cube_state[13], (display_left + 42, display_top + 120, 16, 16))
+    screen.fill(cube_state[14], (display_left + 59, display_top + 120, 16, 16))
+    screen.fill(cube_state[15], (display_left + 25, display_top + 137, 16, 16))
+    screen.fill(cube_state[16], (display_left + 42, display_top + 137, 16, 16))
+    screen.fill(cube_state[17], (display_left + 59, display_top + 137, 16, 16))
     # Green
     screen.fill("black", (display_left + 78, display_top + 103, 50, 50))
-    screen.fill("green", (display_left + 78, display_top + 103, 16, 16))
-    screen.fill("green", (display_left + 95, display_top + 103, 16, 16))
-    screen.fill("green", (display_left + 112, display_top + 103, 16, 16))
-    screen.fill("green", (display_left + 78, display_top + 120, 16, 16))
-    screen.fill("green", (display_left + 95, display_top + 120, 16, 16))
-    screen.fill("green", (display_left + 112, display_top + 120, 16, 16))
-    screen.fill("green", (display_left + 78, display_top + 137, 16, 16))
-    screen.fill("green", (display_left + 95, display_top + 137, 16, 16))
-    screen.fill("green", (display_left + 112, display_top + 137, 16, 16))
+    screen.fill(cube_state[18], (display_left + 78, display_top + 103, 16, 16))
+    screen.fill(cube_state[19], (display_left + 95, display_top + 103, 16, 16))
+    screen.fill(cube_state[20], (display_left + 112, display_top + 103, 16, 16))
+    screen.fill(cube_state[21], (display_left + 78, display_top + 120, 16, 16))
+    screen.fill(cube_state[22], (display_left + 95, display_top + 120, 16, 16))
+    screen.fill(cube_state[23], (display_left + 112, display_top + 120, 16, 16))
+    screen.fill(cube_state[24], (display_left + 78, display_top + 137, 16, 16))
+    screen.fill(cube_state[25], (display_left + 95, display_top + 137, 16, 16))
+    screen.fill(cube_state[26], (display_left + 112, display_top + 137, 16, 16))
     # Red
     screen.fill("black", (display_left + 25 + 53*2, display_top + 50 + 53, 50, 50))
-    screen.fill("red", (display_left + 131, display_top + 103, 16, 16))
-    screen.fill("red", (display_left + 148, display_top + 103, 16, 16))
-    screen.fill("red", (display_left + 165, display_top + 103, 16, 16))
-    screen.fill("red", (display_left + 131, display_top + 120, 16, 16))
-    screen.fill("red", (display_left + 148, display_top + 120, 16, 16))
-    screen.fill("red", (display_left + 165, display_top + 120, 16, 16))
-    screen.fill("red", (display_left + 131, display_top + 137, 16, 16))
-    screen.fill("red", (display_left + 148, display_top + 137, 16, 16))
-    screen.fill("red", (display_left + 165, display_top + 137, 16, 16))
+    screen.fill(cube_state[27], (display_left + 131, display_top + 103, 16, 16))
+    screen.fill(cube_state[28], (display_left + 148, display_top + 103, 16, 16))
+    screen.fill(cube_state[29], (display_left + 165, display_top + 103, 16, 16))
+    screen.fill(cube_state[30], (display_left + 131, display_top + 120, 16, 16))
+    screen.fill(cube_state[31], (display_left + 148, display_top + 120, 16, 16))
+    screen.fill(cube_state[32], (display_left + 165, display_top + 120, 16, 16))
+    screen.fill(cube_state[33], (display_left + 131, display_top + 137, 16, 16))
+    screen.fill(cube_state[34], (display_left + 148, display_top + 137, 16, 16))
+    screen.fill(cube_state[35], (display_left + 165, display_top + 137, 16, 16))
     # Blue
     screen.fill("black", (display_left + 25 + 53*3, display_top + 50 + 53, 50, 50))
-    screen.fill("blue", (display_left + 184, display_top + 103, 16, 16))
-    screen.fill("blue", (display_left + 201, display_top + 103, 16, 16))
-    screen.fill("blue", (display_left + 218, display_top + 103, 16, 16))
-    screen.fill("blue", (display_left + 184, display_top + 120, 16, 16))
-    screen.fill("blue", (display_left + 201, display_top + 120, 16, 16))
-    screen.fill("blue", (display_left + 218, display_top + 120, 16, 16))
-    screen.fill("blue", (display_left + 184, display_top + 137, 16, 16))
-    screen.fill("blue", (display_left + 201, display_top + 137, 16, 16))
-    screen.fill("blue", (display_left + 218, display_top + 137, 16, 16))
+    screen.fill(cube_state[36], (display_left + 184, display_top + 103, 16, 16))
+    screen.fill(cube_state[37], (display_left + 201, display_top + 103, 16, 16))
+    screen.fill(cube_state[38], (display_left + 218, display_top + 103, 16, 16))
+    screen.fill(cube_state[39], (display_left + 184, display_top + 120, 16, 16))
+    screen.fill(cube_state[40], (display_left + 201, display_top + 120, 16, 16))
+    screen.fill(cube_state[41], (display_left + 218, display_top + 120, 16, 16))
+    screen.fill(cube_state[42], (display_left + 184, display_top + 137, 16, 16))
+    screen.fill(cube_state[43], (display_left + 201, display_top + 137, 16, 16))
+    screen.fill(cube_state[44], (display_left + 218, display_top + 137, 16, 16))
     # Yell
     screen.fill("black", (display_left + 25 + 53, display_top + 50 + 53*2, 50, 50))
-    screen.fill("yellow", (display_left + 78, display_top + 156, 16, 16))
-    screen.fill("yellow", (display_left + 95, display_top + 156, 16, 16))
-    screen.fill("yellow", (display_left + 112, display_top + 156, 16, 16))
-    screen.fill("yellow", (display_left + 78, display_top + 173, 16, 16))
-    screen.fill("yellow", (display_left + 95, display_top + 173, 16, 16))
-    screen.fill("yellow", (display_left + 112, display_top + 173, 16, 16))
-    screen.fill("yellow", (display_left + 78, display_top + 190, 16, 16))
-    screen.fill("yellow", (display_left + 95, display_top + 190, 16, 16))
-    screen.fill("yellow", (display_left + 112, display_top + 190, 16, 16))
+    screen.fill(cube_state[45], (display_left + 78, display_top + 156, 16, 16))
+    screen.fill(cube_state[46], (display_left + 95, display_top + 156, 16, 16))
+    screen.fill(cube_state[47], (display_left + 112, display_top + 156, 16, 16))
+    screen.fill(cube_state[48], (display_left + 78, display_top + 173, 16, 16))
+    screen.fill(cube_state[49], (display_left + 95, display_top + 173, 16, 16))
+    screen.fill(cube_state[50], (display_left + 112, display_top + 173, 16, 16))
+    screen.fill(cube_state[51], (display_left + 78, display_top + 190, 16, 16))
+    screen.fill(cube_state[52], (display_left + 95, display_top + 190, 16, 16))
+    screen.fill(cube_state[53], (display_left + 112, display_top + 190, 16, 16))
