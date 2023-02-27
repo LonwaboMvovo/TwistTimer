@@ -1,43 +1,10 @@
 import pygame
 import time
-import re
 import datetime
+import scrambler
+import json
 
 from platform import system
-from random import choice as random_choice
-
-
-def get_scramble():
-    scramble_moves = ["F", "R", "U", "B", "L", "D", "F2", "R2", "U2", "B2", "L2", "D2", "F'", "R'", "U'", "B'", "L'", "D'"]
-
-    scramble = []
-
-    for _ in range(20):
-        if len(scramble) == 0:
-            scramble.append(random_choice(scramble_moves))
-        else:
-            last_scramble = scramble[-1]
-            last_scramble_type = ''.join(w for w in re.split("["+"\\".join("2'")+"]", last_scramble))
-
-            new_scramble = random_choice(scramble_moves)
-            new_scramble_type = ''.join(w for w in re.split("["+"\\".join("2'")+"]", new_scramble))
-
-            while last_scramble_type == new_scramble_type:
-                new_scramble = random_choice(scramble_moves)
-                new_scramble_type = ''.join(w for w in re.split("["+"\\".join("2'")+"]", new_scramble))
-
-            scramble.append(new_scramble)
-    
-    return " ".join(scramble)
-
-
-def update_scramble(scramble):
-    global scramble_text, scramble_text_rect
-
-    scramble_text = AnonymousPro_font.render(scramble, True, "grey")
-    scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
-
-    screen.blit(scramble_text, scramble_text_rect)
 
 
 def update_time(solve_time, time_text_colour):
@@ -84,7 +51,7 @@ def update_timer_ao12(ao12_time = "-"):
 
 
 def main():
-    global time_text_colour, scramble
+    global time_text_colour, scramble, scramble_text, scramble_text_rect
 
     solving = False
     solve_time = 0
@@ -104,7 +71,7 @@ def main():
                     if not solving:
                         time_text_colour = (0,221,0)
                     else:
-                        scramble = get_scramble()
+                        scramble = scrambler.get_scramble()
             
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_SPACE:
@@ -130,7 +97,7 @@ def main():
             solve_time = current_time - start_time
 
         update_cube_type()
-        update_scramble(scramble)
+        scramble_text, scramble_text_rect = scrambler.update_scramble(AnonymousPro_font,screen_width, screen, scramble)
         update_time(solve_time, time_text_colour)
         update_timer_ao5()
         update_timer_ao12()
@@ -163,24 +130,24 @@ if __name__ == "__main__":
     screen.fill(screen_bg_colour)
 
     # Time display
-    digital_7_font = pygame.font.Font("fonts/digital-7.ttf", 250)
+    digital_7_font = pygame.font.Font("Fonts/digital-7.ttf", 250)
     time_text_colour = "grey"
     time_text = digital_7_font.render(f"{0:.2f}", True, time_text_colour)
     time_text_rect = time_text.get_rect(center = (screen_width//2, screen_height//2))
 
     # Scramble display
-    AnonymousPro_font = pygame.font.Font("fonts/AnonymousPro.ttf", 30)
-    scramble = get_scramble()
+    AnonymousPro_font = pygame.font.Font("Fonts/AnonymousPro.ttf", 30)
+    scramble = scrambler.get_scramble()
     scramble_text = AnonymousPro_font.render(scramble, True, "grey")
     scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
 
     # Cube type display
-    AnonymousPro_font_cube_timer = pygame.font.Font("fonts/AnonymousPro.ttf", 20)
+    AnonymousPro_font_cube_timer = pygame.font.Font("Fonts/AnonymousPro.ttf", 20)
     cube_type_text = AnonymousPro_font_cube_timer.render("3x3x3", True, "white")
     cube_type_text_rect = cube_type_text.get_rect(center = (screen_width//2, 30))
 
     # ao5 and ao12 display
-    AnonymousPro_font_aos = pygame.font.Font("fonts/AnonymousPro.ttf", 60)
+    AnonymousPro_font_aos = pygame.font.Font("Fonts/AnonymousPro.ttf", 60)
     aos_text_colour = (34,136,221)
     ao5s_text = AnonymousPro_font_aos.render("ao5: -", True, aos_text_colour)
     ao12s_text = AnonymousPro_font_aos.render("ao12: -", True, aos_text_colour)
