@@ -43,13 +43,22 @@ def get_times_list():
     return read_times_list
 
 
-def update_times_list(times_list, scramble, time, state = "OK"):
-    date = "DD/MM/YYYY" # date of solve
-    ao5 = 0.0 # ao5 of current solve time
-    ao12 = 0.0 # ao12 of current solve time
+def add_times_list(times_list, scramble, time, state = "OK"):
+    current_date = datetime.date.today()
+    formatted_date = current_date.strftime('%d/%m/%Y')
 
-    times_list[str(len(times_list.keys()))] = {
-            "date": date,
+    ao5 = "-"
+    if len(times_list.keys()) > 4:
+        last_5_times = [times_list[t]["time"] for t in list(times_list.keys())[-5:]]
+        ao5 = round(sum(last_5_times)/5, 2) # ao5 of current solve time
+
+    ao12 = "-"
+    if len(times_list.keys()) > 11:
+        last_12_times = [times_list[t]["time"] for t in list(times_list.keys())[-12:]]
+        ao12 = round(sum(last_12_times)/12, 2) # ao12 of current solve time
+
+    times_list[len(times_list.keys())] = {
+            "date": formatted_date,
             "scramble": scramble,
             "state": state,
             "time": time,
@@ -65,4 +74,4 @@ def update_times_list(times_list, scramble, time, state = "OK"):
 
 
 if __name__ == "__main__":
-    update_times_list(get_times_list(), "D' R D' F L' B' L U B2 L' D2 L2 B2 U2 D2 U2 R D' L R2", 11.56)
+    add_times_list(get_times_list(), "D' R D' F L' B' L U B2 L' D2 L2 B2 U2 D2 U2 R D' L R2", 11.56)
