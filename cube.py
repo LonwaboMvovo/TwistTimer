@@ -61,8 +61,16 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     screen.fill("white", (display_left + 95, display_top + 84, 16, 16))
     screen.fill("white", (display_left + 112, display_top + 84, 16, 16))
     # Orange
-    screen.fill("orange", (display_left + 25, display_top + 50 + 53, 50, 50))
-    screen.fill("black", (display_left + 25, display_top + 50 + 53, 50, 50))
+    screen.fill("black", (display_left + 25, display_top + 103, 50, 50))
+    screen.fill("orange", (display_left + 25, display_top + 103, 16, 16))
+    screen.fill("orange", (display_left + 42, display_top + 103, 16, 16))
+    screen.fill("orange", (display_left + 59, display_top + 103, 16, 16))
+    screen.fill("orange", (display_left + 25, display_top + 120, 16, 16))
+    screen.fill("orange", (display_left + 42, display_top + 120, 16, 16))
+    screen.fill("orange", (display_left + 59, display_top + 120, 16, 16))
+    screen.fill("orange", (display_left + 25, display_top + 137, 16, 16))
+    screen.fill("orange", (display_left + 42, display_top + 137, 16, 16))
+    screen.fill("orange", (display_left + 59, display_top + 137, 16, 16))
     # Green
     screen.fill("green", (display_left + 25 + 53, display_top + 50 + 53, 50, 50))
     screen.fill("black", (display_left + 25 + 53, display_top + 50 + 53, 50, 50))
