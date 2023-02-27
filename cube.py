@@ -9,6 +9,175 @@ def update_cube_type(AnonymousPro_font_cube_timer, screen_width, screen):
     return cube_type_text, cube_type_text_rect
 
 
+def move_side(cube_state, side, move):
+    new_cube_state = cube_state.copy()
+
+    if side == "F":
+        while move:
+            new_cube_state[6] = cube_state[17]
+            new_cube_state[7] = cube_state[14]
+            new_cube_state[8] = cube_state[11]
+            new_cube_state[27] = cube_state[6]
+            new_cube_state[30] = cube_state[7]
+            new_cube_state[33] = cube_state[8]
+            new_cube_state[47] = cube_state[27]
+            new_cube_state[46] = cube_state[30]
+            new_cube_state[45] = cube_state[33]
+            new_cube_state[17] = cube_state[47]
+            new_cube_state[14] = cube_state[46]
+            new_cube_state[11] = cube_state[45]
+            new_cube_state[18] = cube_state[24]
+            new_cube_state[19] = cube_state[21]
+            new_cube_state[20] = cube_state[18]
+            new_cube_state[23] = cube_state[19]
+            new_cube_state[26] = cube_state[20]
+            new_cube_state[25] = cube_state[23]
+            new_cube_state[24] = cube_state[26]
+            new_cube_state[21] = cube_state[25]
+
+            cube_state = new_cube_state
+            new_cube_state = cube_state.copy()
+
+            move -= 1
+    elif side == "R":
+        while move:
+            new_cube_state[8] = cube_state[26]
+            new_cube_state[5] = cube_state[23]
+            new_cube_state[2] = cube_state[20]
+            new_cube_state[36] = cube_state[8]
+            new_cube_state[39] = cube_state[5]
+            new_cube_state[42] = cube_state[2]
+            new_cube_state[53] = cube_state[36]
+            new_cube_state[50] = cube_state[39]
+            new_cube_state[47] = cube_state[42]
+            new_cube_state[26] = cube_state[53]
+            new_cube_state[23] = cube_state[50]
+            new_cube_state[20] = cube_state[47]
+            new_cube_state[27] = cube_state[33]
+            new_cube_state[28] = cube_state[30]
+            new_cube_state[29] = cube_state[27]
+            new_cube_state[32] = cube_state[28]
+            new_cube_state[35] = cube_state[29]
+            new_cube_state[34] = cube_state[32]
+            new_cube_state[33] = cube_state[35]
+            new_cube_state[30] = cube_state[34]
+
+            cube_state = new_cube_state
+            new_cube_state = cube_state.copy()
+
+            move -= 1
+    elif side == "U":
+        while move:
+            new_cube_state[38] = cube_state[11]
+            new_cube_state[37] = cube_state[10]
+            new_cube_state[36] = cube_state[9]
+            new_cube_state[29] = cube_state[38]
+            new_cube_state[28] = cube_state[37]
+            new_cube_state[27] = cube_state[36]
+            new_cube_state[20] = cube_state[29]
+            new_cube_state[19] = cube_state[28]
+            new_cube_state[18] = cube_state[27]
+            new_cube_state[11] = cube_state[20]
+            new_cube_state[10] = cube_state[19]
+            new_cube_state[9] = cube_state[18]
+            new_cube_state[0] = cube_state[6]
+            new_cube_state[1] = cube_state[3]
+            new_cube_state[2] = cube_state[0]
+            new_cube_state[5] = cube_state[1]
+            new_cube_state[8] = cube_state[2]
+            new_cube_state[7] = cube_state[5]
+            new_cube_state[6] = cube_state[8]
+            new_cube_state[3] = cube_state[7]
+
+            cube_state = new_cube_state
+            new_cube_state = cube_state.copy()
+
+            move -= 1
+    elif side == "B":
+        while move:
+            new_cube_state[2] = cube_state[35]
+            new_cube_state[1] = cube_state[32]
+            new_cube_state[0] = cube_state[29]
+            new_cube_state[9] = cube_state[2]
+            new_cube_state[12] = cube_state[1]
+            new_cube_state[15] = cube_state[0]
+            new_cube_state[51] = cube_state[9]
+            new_cube_state[52] = cube_state[12]
+            new_cube_state[53] = cube_state[15]
+            new_cube_state[35] = cube_state[51]
+            new_cube_state[32] = cube_state[52]
+            new_cube_state[29] = cube_state[53]
+            new_cube_state[36] = cube_state[42]
+            new_cube_state[37] = cube_state[39]
+            new_cube_state[38] = cube_state[36]
+            new_cube_state[41] = cube_state[37]
+            new_cube_state[44] = cube_state[38]
+            new_cube_state[43] = cube_state[41]
+            new_cube_state[42] = cube_state[44]
+            new_cube_state[39] = cube_state[43]
+
+            cube_state = new_cube_state
+            new_cube_state = cube_state.copy()
+
+            move -= 1
+    elif side == "L":
+        while move:
+            new_cube_state[0] = cube_state[44]
+            new_cube_state[3] = cube_state[41]
+            new_cube_state[6] = cube_state[38]
+            new_cube_state[18] = cube_state[0]
+            new_cube_state[21] = cube_state[3]
+            new_cube_state[24] = cube_state[6]
+            new_cube_state[45] = cube_state[18]
+            new_cube_state[48] = cube_state[21]
+            new_cube_state[51] = cube_state[24]
+            new_cube_state[44] = cube_state[45]
+            new_cube_state[41] = cube_state[48]
+            new_cube_state[38] = cube_state[51]
+            new_cube_state[9] = cube_state[15]
+            new_cube_state[10] = cube_state[12]
+            new_cube_state[11] = cube_state[9]
+            new_cube_state[14] = cube_state[10]
+            new_cube_state[17] = cube_state[11]
+            new_cube_state[16] = cube_state[14]
+            new_cube_state[15] = cube_state[17]
+            new_cube_state[12] = cube_state[16]
+
+            cube_state = new_cube_state
+            new_cube_state = cube_state.copy()
+
+            move -= 1
+    else:
+        while move:
+            new_cube_state[24] = cube_state[15]
+            new_cube_state[25] = cube_state[16]
+            new_cube_state[26] = cube_state[17]
+            new_cube_state[33] = cube_state[24]
+            new_cube_state[34] = cube_state[25]
+            new_cube_state[35] = cube_state[26]
+            new_cube_state[42] = cube_state[33]
+            new_cube_state[43] = cube_state[34]
+            new_cube_state[44] = cube_state[35]
+            new_cube_state[15] = cube_state[42]
+            new_cube_state[16] = cube_state[43]
+            new_cube_state[17] = cube_state[44]
+            new_cube_state[45] = cube_state[51]
+            new_cube_state[46] = cube_state[48]
+            new_cube_state[47] = cube_state[45]
+            new_cube_state[50] = cube_state[46]
+            new_cube_state[53] = cube_state[47]
+            new_cube_state[52] = cube_state[50]
+            new_cube_state[51] = cube_state[53]
+            new_cube_state[48] = cube_state[52]
+
+            cube_state = new_cube_state
+            new_cube_state = cube_state.copy()
+
+            move -= 1
+
+    return new_cube_state
+
+
 def draw_scramble(scramble, screen_width, screen_height, screen):
     cube_state = [
         # Top
@@ -39,156 +208,16 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
 
     # Scramble cube state:
     new_cube_state = cube_state.copy()
-    # "F", "R", "U", "B", "L", "D"
 
-    # F:
-    new_cube_state[6] = cube_state[17]
-    new_cube_state[7] = cube_state[14]
-    new_cube_state[8] = cube_state[11]
-    new_cube_state[27] = cube_state[6]
-    new_cube_state[30] = cube_state[7]
-    new_cube_state[33] = cube_state[8]
-    new_cube_state[47] = cube_state[27]
-    new_cube_state[46] = cube_state[30]
-    new_cube_state[45] = cube_state[33]
-    new_cube_state[17] = cube_state[47]
-    new_cube_state[14] = cube_state[46]
-    new_cube_state[11] = cube_state[45]
-    new_cube_state[18] = cube_state[24]
-    new_cube_state[19] = cube_state[21]
-    new_cube_state[20] = cube_state[18]
-    new_cube_state[23] = cube_state[19]
-    new_cube_state[26] = cube_state[20]
-    new_cube_state[25] = cube_state[23]
-    new_cube_state[24] = cube_state[26]
-    new_cube_state[21] = cube_state[25]
+    for scramble_move in scramble.split(" "):
+        if len(scramble_move) == 1:
+            new_cube_state = move_side(cube_state, scramble_move[0], 1)
+        elif scramble_move[1] == "2":
+            new_cube_state = move_side(cube_state, scramble_move[0], 2)
+        else:
+            new_cube_state = move_side(cube_state, scramble_move[0], 3)
 
-    cube_state = new_cube_state
-    new_cube_state = cube_state.copy()
-
-    # R:
-    new_cube_state[8] = cube_state[26]
-    new_cube_state[5] = cube_state[23]
-    new_cube_state[2] = cube_state[20]
-    new_cube_state[36] = cube_state[8]
-    new_cube_state[39] = cube_state[5]
-    new_cube_state[42] = cube_state[2]
-    new_cube_state[53] = cube_state[36]
-    new_cube_state[50] = cube_state[39]
-    new_cube_state[47] = cube_state[42]
-    new_cube_state[26] = cube_state[53]
-    new_cube_state[23] = cube_state[50]
-    new_cube_state[20] = cube_state[47]
-    new_cube_state[27] = cube_state[33]
-    new_cube_state[28] = cube_state[30]
-    new_cube_state[29] = cube_state[27]
-    new_cube_state[32] = cube_state[28]
-    new_cube_state[35] = cube_state[29]
-    new_cube_state[34] = cube_state[32]
-    new_cube_state[33] = cube_state[35]
-    new_cube_state[30] = cube_state[34]
-
-    cube_state = new_cube_state
-    new_cube_state = cube_state.copy()
-
-    # U:
-    new_cube_state[38] = cube_state[11]
-    new_cube_state[37] = cube_state[10]
-    new_cube_state[36] = cube_state[9]
-    new_cube_state[29] = cube_state[38]
-    new_cube_state[28] = cube_state[37]
-    new_cube_state[27] = cube_state[36]
-    new_cube_state[20] = cube_state[29]
-    new_cube_state[19] = cube_state[28]
-    new_cube_state[18] = cube_state[27]
-    new_cube_state[11] = cube_state[20]
-    new_cube_state[10] = cube_state[19]
-    new_cube_state[9] = cube_state[18]
-    new_cube_state[0] = cube_state[6]
-    new_cube_state[1] = cube_state[3]
-    new_cube_state[2] = cube_state[0]
-    new_cube_state[5] = cube_state[1]
-    new_cube_state[8] = cube_state[2]
-    new_cube_state[7] = cube_state[5]
-    new_cube_state[6] = cube_state[8]
-    new_cube_state[3] = cube_state[7]
-
-    cube_state = new_cube_state
-    new_cube_state = cube_state.copy()
-
-    # B:
-    new_cube_state[2] = cube_state[35]
-    new_cube_state[1] = cube_state[32]
-    new_cube_state[0] = cube_state[29]
-    new_cube_state[9] = cube_state[2]
-    new_cube_state[12] = cube_state[1]
-    new_cube_state[15] = cube_state[0]
-    new_cube_state[51] = cube_state[9]
-    new_cube_state[52] = cube_state[12]
-    new_cube_state[53] = cube_state[15]
-    new_cube_state[35] = cube_state[51]
-    new_cube_state[32] = cube_state[52]
-    new_cube_state[29] = cube_state[53]
-    new_cube_state[36] = cube_state[42]
-    new_cube_state[37] = cube_state[39]
-    new_cube_state[38] = cube_state[36]
-    new_cube_state[41] = cube_state[37]
-    new_cube_state[44] = cube_state[38]
-    new_cube_state[43] = cube_state[41]
-    new_cube_state[42] = cube_state[44]
-    new_cube_state[39] = cube_state[43]
-
-    cube_state = new_cube_state
-    new_cube_state = cube_state.copy()
-
-    # L:
-    new_cube_state[0] = cube_state[44]
-    new_cube_state[3] = cube_state[41]
-    new_cube_state[6] = cube_state[38]
-    new_cube_state[18] = cube_state[0]
-    new_cube_state[21] = cube_state[3]
-    new_cube_state[24] = cube_state[6]
-    new_cube_state[45] = cube_state[18]
-    new_cube_state[48] = cube_state[21]
-    new_cube_state[51] = cube_state[24]
-    new_cube_state[44] = cube_state[45]
-    new_cube_state[41] = cube_state[48]
-    new_cube_state[38] = cube_state[51]
-    new_cube_state[9] = cube_state[15]
-    new_cube_state[10] = cube_state[12]
-    new_cube_state[11] = cube_state[9]
-    new_cube_state[14] = cube_state[10]
-    new_cube_state[17] = cube_state[11]
-    new_cube_state[16] = cube_state[14]
-    new_cube_state[15] = cube_state[17]
-    new_cube_state[12] = cube_state[16]
-
-    cube_state = new_cube_state
-    new_cube_state = cube_state.copy()
-
-    # D:
-    new_cube_state[24] = cube_state[15]
-    new_cube_state[25] = cube_state[16]
-    new_cube_state[26] = cube_state[17]
-    new_cube_state[33] = cube_state[24]
-    new_cube_state[34] = cube_state[25]
-    new_cube_state[35] = cube_state[26]
-    new_cube_state[42] = cube_state[33]
-    new_cube_state[43] = cube_state[34]
-    new_cube_state[44] = cube_state[35]
-    new_cube_state[15] = cube_state[42]
-    new_cube_state[16] = cube_state[43]
-    new_cube_state[17] = cube_state[44]
-    new_cube_state[45] = cube_state[51]
-    new_cube_state[46] = cube_state[48]
-    new_cube_state[47] = cube_state[45]
-    new_cube_state[50] = cube_state[46]
-    new_cube_state[53] = cube_state[47]
-    new_cube_state[52] = cube_state[50]
-    new_cube_state[51] = cube_state[53]
-    new_cube_state[48] = cube_state[52]
-
-    cube_state = new_cube_state
+        cube_state = new_cube_state
 
     display_left = screen_width - 250
     display_top = screen_height - 250

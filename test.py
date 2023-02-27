@@ -1,32 +1,11 @@
-cube_state = [
-    # Top
-    [["w", "w", "w"],
-        ["w", "w", "w"],
-        ["w", "w", "w"]
-    ],
-    # Left
-    [["o", "o", "o"],
-        ["o", "o", "o"],
-        ["o", "o", "o"]
-    ],
-    # Front
-    [["g", "g", "g"],
-        ["g", "g", "g"],
-        ["g", "g", "g"]
-    ],
-    # Right
-    [["r", "r", "r"],
-        ["r", "r", "r"],
-        ["r", "r", "r"]
-    ],
-    # Back
-    [["b", "b", "b"],
-        ["b", "b", "b"],
-        ["b", "b", "b"]
-    ],
-    # Bottom
-    [["y", "y", "y"],
-        ["y", "y", "y"],
-        ["y", "y", "y"]
-    ],
-]
+# scramble = "L' U' D' U B U D' U2 L F B L R' U2 D F2 U' F2 L2 U'"
+
+# for scramble_move in scramble.split(" "):
+#     if len(scramble_move) == 1:
+#         input(f"{scramble_move[0]}, 1")
+#     elif scramble_move[1] == "2":
+#         input(f"{scramble_move[0]}, 2")
+#     else:
+#         input(f"{scramble_move[0]}, 3")
+
+print(len("F'"))

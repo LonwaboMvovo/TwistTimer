@@ -29,3 +29,4 @@ TODOs:
 - add cube types
     add cube types to json file
 - cube display after scramble
+- update icon on taskbar
