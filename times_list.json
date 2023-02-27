@@ -1,3 +1,128 @@
 {
-    
+    "0": {
+        "date": "27/02/2023",
+        "scramble": "U R' L2 R2 B2 F B2 L2 F' B L2 F U' B2 R2 U' R' D R2 F'",
+        "state": "OK",
+        "time": 13.93,
+        "ao5": "-",
+        "ao12": "-",
+        "comment": ""
+    },
+    "1": {
+        "date": "27/02/2023",
+        "scramble": "U' L' D' U2 F2 R U2 R2 L2 R2 L2 U2 L2 D' B' L D U' B D'",
+        "state": "OK",
+        "time": 13.51,
+        "ao5": "-",
+        "ao12": "-",
+        "comment": ""
+    },
+    "2": {
+        "date": "27/02/2023",
+        "scramble": "U2 L2 D' F2 R' B' L D' R B' U D2 B R' L2 F' R2 B2 R' F'",
+        "state": "OK",
+        "time": 12.62,
+        "ao5": "-",
+        "ao12": "-",
+        "comment": ""
+    },
+    "3": {
+        "date": "27/02/2023",
+        "scramble": "L U' B2 U B2 U R' F' L' D2 F2 D R' F2 R2 U2 F B D' F2",
+        "state": "OK",
+        "time": 13.41,
+        "ao5": "-",
+        "ao12": "-",
+        "comment": ""
+    },
+    "4": {
+        "date": "27/02/2023",
+        "scramble": "L' F2 D2 L' R2 U' L' B' U R2 F R U' B2 D' R' U2 D' L' B2",
+        "state": "OK",
+        "time": 11.94,
+        "ao5": "-",
+        "ao12": "-",
+        "comment": ""
+    },
+    "5": {
+        "date": "27/02/2023",
+        "scramble": "B' L' D2 L2 U' L' B F' B2 L U' F2 R' B' L2 R' U' F' D' F",
+        "state": "OK",
+        "time": 15.41,
+        "ao5": 13.08,
+        "ao12": "-",
+        "comment": ""
+    },
+    "6": {
+        "date": "27/02/2023",
+        "scramble": "D2 R2 D2 R2 B U2 B U2 B F2 L B D2 U B F' D B' R' B",
+        "state": "OK",
+        "time": 13.68,
+        "ao5": 13.38,
+        "ao12": "-",
+        "comment": ""
+    },
+    "7": {
+        "date": "27/02/2023",
+        "scramble": "U2 L2 F2 R2 D B' L' D2 L2 F D2 L' U' R2 U' L U' F' U' B'",
+        "state": "OK",
+        "time": 13.15,
+        "ao5": 13.41,
+        "ao12": "-",
+        "comment": ""
+    },
+    "8": {
+        "date": "27/02/2023",
+        "scramble": "U' L2 R2 F' U2 D2 L' R D2 U L2 D R2 F D' F B2 D2 F B",
+        "state": "OK",
+        "time": 12.83,
+        "ao5": 13.52,
+        "ao12": "-",
+        "comment": ""
+    },
+    "9": {
+        "date": "27/02/2023",
+        "scramble": "D' L2 B L2 R' U2 L2 D B2 F U' D' L2 F2 B' L2 R D' L' F2",
+        "state": "OK",
+        "time": 13.63,
+        "ao5": 13.4,
+        "ao12": "-",
+        "comment": ""
+    },
+    "10": {
+        "date": "27/02/2023",
+        "scramble": "R2 D2 F B D F D2 L2 R2 D2 B' R2 D2 F2 L F' R' U' F2 U2",
+        "state": "OK",
+        "time": 15.55,
+        "ao5": 13.74,
+        "ao12": "-",
+        "comment": ""
+    },
+    "11": {
+        "date": "27/02/2023",
+        "scramble": "F' R' F R U2 D R' B' R' B2 F' U' F' D U' B' U F' R2 F",
+        "state": "OK",
+        "time": 12.93,
+        "ao5": 13.77,
+        "ao12": "-",
+        "comment": ""
+    },
+    "12": {
+        "date": "27/02/2023",
+        "scramble": "U' R2 L' U2 B2 D2 B2 U' F2 B2 U' B2 R U L' B F D2 L' U'",
+        "state": "OK",
+        "time": 14.66,
+        "ao5": 13.62,
+        "ao12": 13.55,
+        "comment": ""
+    },
+    "13": {
+        "date": "27/02/2023",
+        "scramble": "L' D B' F2 R' F2 L2 U2 B2 L B2 U D' U' F B' R B D L",
+        "state": "OK",
+        "time": 13.14,
+        "ao5": 13.92,
+        "ao12": 13.61,
+        "comment": ""
+    }
 }
