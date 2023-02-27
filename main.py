@@ -1,26 +1,10 @@
 import pygame
 import time
-import datetime
-import scrambler
 import json
+import scrambler
+import times
 
 from platform import system
-
-
-def update_time(solve_time, time_text_colour):
-    global time_text, time_text_rect
-
-    datetime_solve_time = datetime.datetime.fromtimestamp(solve_time)
-
-    if int(solve_time) > 60:
-        formatted_time = datetime_solve_time.strftime(f'%{digit_char}M:%S.%f')
-    else:
-        formatted_time = datetime_solve_time.strftime(f'%{digit_char}S.%f')
-
-    time_text = digital_7_font.render(formatted_time[:-4], True, time_text_colour)
-    time_text_rect = time_text.get_rect(center = (screen_width//2, screen_height//2))
-
-    screen.blit(time_text, time_text_rect)
 
 
 def update_cube_type():
@@ -32,26 +16,8 @@ def update_cube_type():
     screen.blit(cube_type_text, cube_type_text_rect)
 
 
-def update_timer_ao5(ao5_time = "-"):
-    global ao5s_text, ao5s_text_rect
-
-    ao5s_text = AnonymousPro_font_aos.render(f"ao5: {ao5_time}", True, aos_text_colour)
-    ao5s_text_rect = ao5s_text.get_rect(midtop = (screen_width//2, screen_height//2 + 120))
-
-    screen.blit(ao5s_text, ao5s_text_rect)
-
-
-def update_timer_ao12(ao12_time = "-"):
-    global ao12s_text, ao12s_text_rect
-
-    ao12s_text = AnonymousPro_font_aos.render(f"ao12: {ao12_time}", True, aos_text_colour)
-    ao12s_text_rect = ao12s_text.get_rect(midtop = (screen_width//2, screen_height//2 + 180))
-
-    screen.blit(ao12s_text, ao12s_text_rect)
-
-
 def main():
-    global time_text_colour, scramble, scramble_text, scramble_text_rect
+    global time_text_colour, scramble, scramble_text, scramble_text_rect, time_text, time_text_rect, ao5s_text, ao5s_text_rect, ao12s_text, ao12s_text_rect
 
     solving = False
     solve_time = 0
@@ -97,10 +63,12 @@ def main():
             solve_time = current_time - start_time
 
         update_cube_type()
+
         scramble_text, scramble_text_rect = scrambler.update_scramble(AnonymousPro_font,screen_width, screen, scramble)
-        update_time(solve_time, time_text_colour)
-        update_timer_ao5()
-        update_timer_ao12()
+
+        time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
+        ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen)
+        ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen)
 
         pygame.display.update()
 

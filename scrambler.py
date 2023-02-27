@@ -2,6 +2,7 @@ import re
 
 from random import choice as random_choice
 
+
 def get_scramble():
     scramble_moves = ["F", "R", "U", "B", "L", "D", "F2", "R2", "U2", "B2", "L2", "D2", "F'", "R'", "U'", "B'", "L'", "D'"]
 
