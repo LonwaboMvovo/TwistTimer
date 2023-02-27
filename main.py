@@ -10,6 +10,15 @@ from platform import system
 def main():
     global time_text_colour, scramble, scramble_text, scramble_text_rect, time_text, time_text_rect, ao5s_text, ao5s_text_rect, ao12s_text, ao12s_text_rect, cube_type_text, cube_type_text_rect
 
+    # Times list
+    read_times_list = times.get_times_list()
+    if len(read_times_list.keys()) == 0:
+        ao5 = "-"
+        ao12 = "-"
+    else:
+        ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
+        ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
+
     solving = False
     solve_time = 0
 
@@ -36,6 +45,12 @@ def main():
                         solving = False
                         current_time = time.time()
                         solve_time = current_time - start_time
+
+                        times.add_times_list(read_times_list, scramble, round(solve_time, 2))
+
+                        read_times_list = times.get_times_list()
+                        ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
+                        ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
                     else:
                         time_text_colour = "grey"
                         solving = True
@@ -56,15 +71,6 @@ def main():
         cube_type_text, cube_type_text_rect = cube.update_cube_type(AnonymousPro_font_cube_timer, screen_width, screen)
 
         scramble_text, scramble_text_rect = scrambler.update_scramble(AnonymousPro_font,screen_width, screen, scramble)
-
-        # Times list
-        read_times_list = times.get_times_list()
-        if len(read_times_list.keys()) == 0:
-            ao5 = "-"
-            ao12 = "-"
-        else:
-            ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
-            ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
 
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
         ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao5)
