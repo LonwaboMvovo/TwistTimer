@@ -57,9 +57,18 @@ def main():
 
         scramble_text, scramble_text_rect = scrambler.update_scramble(AnonymousPro_font,screen_width, screen, scramble)
 
+        # Times list
+        read_times_list = times.get_times_list()
+        if len(read_times_list.keys()) == 0:
+            ao5 = "-"
+            ao12 = "-"
+        else:
+            ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
+            ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
+
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
-        ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen)
-        ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen)
+        ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao5)
+        ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao12)
 
         pygame.display.update()
 
