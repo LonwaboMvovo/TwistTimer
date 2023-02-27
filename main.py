@@ -1,6 +1,5 @@
 import pygame
 import time
-import json
 import scrambler
 import times
 import cube
