@@ -37,6 +37,34 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
         "yellow", "yellow", "yellow"
     ]
 
+    # Scramble cube state:
+    new_cube_state = cube_state.copy()
+    # "F", "R", "U", "B", "L", "D"
+
+    # F:
+    new_cube_state[6] = cube_state[17]
+    new_cube_state[7] = cube_state[14]
+    new_cube_state[8] = cube_state[11]
+    new_cube_state[27] = cube_state[6]
+    new_cube_state[30] = cube_state[7]
+    new_cube_state[33] = cube_state[8]
+    new_cube_state[47] = cube_state[27]
+    new_cube_state[46] = cube_state[30]
+    new_cube_state[45] = cube_state[33]
+    new_cube_state[17] = cube_state[47]
+    new_cube_state[14] = cube_state[46]
+    new_cube_state[11] = cube_state[45]
+    new_cube_state[18] = cube_state[24]
+    new_cube_state[19] = cube_state[21]
+    new_cube_state[20] = cube_state[18]
+    new_cube_state[23] = cube_state[19]
+    new_cube_state[26] = cube_state[20]
+    new_cube_state[25] = cube_state[23]
+    new_cube_state[24] = cube_state[26]
+    new_cube_state[21] = cube_state[25]
+
+    cube_state = new_cube_state
+
     display_left = screen_width - 250
     display_top = screen_height - 250
 
