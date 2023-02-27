@@ -49,10 +49,29 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     screen.fill((0,51,68), (display_left, display_top, 250, 250))
     pygame.draw.rect(screen, "grey", (display_left, display_top, 253, 253), width = 3)
 
-    # gap of 3 and 50 for block
-    screen.fill("white", (display_left + 25 + 53, display_top + 50, 50, 50))
+    # White
+    screen.fill("black", (display_left + 78, display_top + 50, 50, 50))
+    screen.fill("white", (display_left + 78, display_top + 50, 16, 16))
+    screen.fill("white", (display_left + 95, display_top + 50, 16, 16))
+    screen.fill("white", (display_left + 112, display_top + 50, 16, 16))
+    screen.fill("white", (display_left + 78, display_top + 67, 16, 16))
+    screen.fill("white", (display_left + 95, display_top + 67, 16, 16))
+    screen.fill("white", (display_left + 112, display_top + 67, 16, 16))
+    screen.fill("white", (display_left + 78, display_top + 84, 16, 16))
+    screen.fill("white", (display_left + 95, display_top + 84, 16, 16))
+    screen.fill("white", (display_left + 112, display_top + 84, 16, 16))
+    # Orange
     screen.fill("orange", (display_left + 25, display_top + 50 + 53, 50, 50))
+    screen.fill("black", (display_left + 25, display_top + 50 + 53, 50, 50))
+    # Green
     screen.fill("green", (display_left + 25 + 53, display_top + 50 + 53, 50, 50))
+    screen.fill("black", (display_left + 25 + 53, display_top + 50 + 53, 50, 50))
+    # Red
     screen.fill("red", (display_left + 25 + 53*2, display_top + 50 + 53, 50, 50))
+    screen.fill("black", (display_left + 25 + 53*2, display_top + 50 + 53, 50, 50))
+    # Blue
     screen.fill("blue", (display_left + 25 + 53*3, display_top + 50 + 53, 50, 50))
+    screen.fill("black", (display_left + 25 + 53*3, display_top + 50 + 53, 50, 50))
+    # Yell
     screen.fill("yellow", (display_left + 25 + 53, display_top + 50 + 53*2, 50, 50))
+    screen.fill("black", (display_left + 25 + 53, display_top + 50 + 53*2, 50, 50))
