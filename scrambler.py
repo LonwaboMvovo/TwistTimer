@@ -23,7 +23,7 @@ def get_scramble():
                 new_scramble_type = ''.join(w for w in re.split("["+"\\".join("2'")+"]", new_scramble))
 
             scramble.append(new_scramble)
-    
+
     return " ".join(scramble)
 
 
@@ -32,6 +32,7 @@ def update_scramble(AnonymousPro_font,screen_width, screen, scramble):
     scramble_text = AnonymousPro_font.render(scramble, True, "grey")
     scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
 
+    screen.fill((0,51,68), (0, 0, screen_width, 150))
     screen.blit(scramble_text, scramble_text_rect)
 
     return scramble_text, scramble_text_rect

@@ -38,7 +38,7 @@ def main():
                         time_text_colour = (0,221,0)
                     else:
                         scramble = scrambler.get_scramble()
-            
+
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_SPACE:
                     if solving:
@@ -75,6 +75,7 @@ def main():
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
         ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao5)
         ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao12)
+        cube.draw_scramble(scramble, screen_width, screen_height, screen)
 
         pygame.display.update()
 
