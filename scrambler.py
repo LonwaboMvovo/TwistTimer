@@ -1,4 +1,5 @@
 import re
+import pygame
 
 from random import choice as random_choice
 
@@ -33,6 +34,8 @@ def update_scramble(AnonymousPro_font,screen_width, screen, scramble):
     scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
 
     screen.fill((0,51,68), (0, 0, screen_width, 150))
+    pygame.draw.line(screen, "grey", (0, 150), (screen_width, 150), width = 3)
+
     screen.blit(scramble_text, scramble_text_rect)
 
     return scramble_text, scramble_text_rect
