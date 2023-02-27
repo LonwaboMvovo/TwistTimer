@@ -17,7 +17,6 @@ Cube timer:
 
 TODOs:
 - fix font spacing ish
-- make new icon for pygame window
 - are you sure you want to exit popup window
 - show current session
 - current time and best Time
@@ -26,13 +25,7 @@ TODOs:
 - ao5 average of 5 under time "-" if not enough yet
 - ao12 average of 12 under time "-" if not enough yet
 - change scramble (previous/next) but obviously cant previous on first solve_time
-- save times on json file with their scrambles
-    - solve number
-        - solve Time
-        - ao5 on solve
-        - ao12 on solve
-        - solve Scramble
-        - comment on solve
-        - solve date
-        - solve state (OK/+2/DNF)
 - save settings on json file
+- add cube types
+    add cube types to json file
+- cube display after scramble
