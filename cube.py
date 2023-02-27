@@ -43,5 +43,16 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
         ],
     ]
 
-    screen.fill((0,51,68), (screen_width - 250, screen_height - 250, 250, 250))
-    pygame.draw.rect(screen, "grey", (screen_width - 250, screen_height - 250, 253, 253), width = 3)
+    display_left = screen_width - 250
+    display_top = screen_height - 250
+
+    screen.fill((0,51,68), (display_left, display_top, 250, 250))
+    pygame.draw.rect(screen, "grey", (display_left, display_top, 253, 253), width = 3)
+
+    # gap of 3 and 50 for block
+    screen.fill("white", (display_left + 25 + 53, display_top + 50, 50, 50))
+    screen.fill("orange", (display_left + 25, display_top + 50 + 53, 50, 50))
+    screen.fill("green", (display_left + 25 + 53, display_top + 50 + 53, 50, 50))
+    screen.fill("red", (display_left + 25 + 53*2, display_top + 50 + 53, 50, 50))
+    screen.fill("blue", (display_left + 25 + 53*3, display_top + 50 + 53, 50, 50))
+    screen.fill("yellow", (display_left + 25 + 53, display_top + 50 + 53*2, 50, 50))
