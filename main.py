@@ -90,7 +90,15 @@ if __name__ == "__main__":
 
     # Set window icon
     icon_surface = pygame.Surface((32, 32))
-    icon_surface.fill('green')
+    icon_surface.fill('yellow', (0, 0, 10, 10))
+    icon_surface.fill('yellow', (11, 0, 10, 10))
+    icon_surface.fill('yellow', (22, 0, 10, 10))
+    icon_surface.fill('red', (0, 11, 10, 10))
+    icon_surface.fill('yellow', (11, 11, 10, 10))
+    icon_surface.fill('green', (22, 11, 10, 10))
+    icon_surface.fill('blue', (0, 22, 10, 10))
+    icon_surface.fill('yellow', (11, 22, 10, 10))
+    icon_surface.fill('white', (22, 22, 10, 10))
     pygame.display.set_icon(icon_surface)
 
     # Set Window title
