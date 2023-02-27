@@ -3,21 +3,13 @@ import time
 import json
 import scrambler
 import times
+import cube
 
 from platform import system
 
 
-def update_cube_type():
-    global cube_type_text, cube_type_text_rect
-
-    cube_type_text = AnonymousPro_font_cube_timer.render("3x3x3", True, "white")
-    cube_type_text_rect = cube_type_text.get_rect(center = (screen_width//2, 30))
-
-    screen.blit(cube_type_text, cube_type_text_rect)
-
-
 def main():
-    global time_text_colour, scramble, scramble_text, scramble_text_rect, time_text, time_text_rect, ao5s_text, ao5s_text_rect, ao12s_text, ao12s_text_rect
+    global time_text_colour, scramble, scramble_text, scramble_text_rect, time_text, time_text_rect, ao5s_text, ao5s_text_rect, ao12s_text, ao12s_text_rect, cube_type_text, cube_type_text_rect
 
     solving = False
     solve_time = 0
@@ -62,7 +54,7 @@ def main():
             current_time = time.time()
             solve_time = current_time - start_time
 
-        update_cube_type()
+        cube_type_text, cube_type_text_rect = cube.update_cube_type(AnonymousPro_font_cube_timer, screen_width, screen)
 
         scramble_text, scramble_text_rect = scrambler.update_scramble(AnonymousPro_font,screen_width, screen, scramble)
 
