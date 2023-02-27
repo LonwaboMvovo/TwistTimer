@@ -88,7 +88,32 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     new_cube_state[33] = cube_state[35]
     new_cube_state[30] = cube_state[34]
 
+    cube_state = new_cube_state
+    new_cube_state = cube_state.copy()
+
     # U:
+    new_cube_state[38] = cube_state[11]
+    new_cube_state[37] = cube_state[10]
+    new_cube_state[36] = cube_state[9]
+    new_cube_state[29] = cube_state[38]
+    new_cube_state[28] = cube_state[37]
+    new_cube_state[27] = cube_state[36]
+    new_cube_state[20] = cube_state[29]
+    new_cube_state[19] = cube_state[28]
+    new_cube_state[18] = cube_state[27]
+    new_cube_state[11] = cube_state[20]
+    new_cube_state[10] = cube_state[19]
+    new_cube_state[9] = cube_state[18]
+    new_cube_state[0] = cube_state[6]
+    new_cube_state[1] = cube_state[3]
+    new_cube_state[2] = cube_state[0]
+    new_cube_state[5] = cube_state[1]
+    new_cube_state[8] = cube_state[2]
+    new_cube_state[7] = cube_state[5]
+    new_cube_state[6] = cube_state[8]
+    new_cube_state[3] = cube_state[7]
+
+    # B:
     # new_cube_state[] = cube_state[]
     # new_cube_state[] = cube_state[]
     # new_cube_state[] = cube_state[]
