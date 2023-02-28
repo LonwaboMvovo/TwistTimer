@@ -49,7 +49,7 @@ def get_times_list():
     return read_times_list
 
 
-def add_times_list(times_list, cube_type, scramble, time, state = "OK"):
+def add_times_list(times_list, scramble, time, state = "OK"):
     current_date = datetime.date.today()
     formatted_date = current_date.strftime('%d/%m/%Y')
 
@@ -65,7 +65,6 @@ def add_times_list(times_list, cube_type, scramble, time, state = "OK"):
 
     times_list[len(times_list.keys())] = {
             "date": formatted_date,
-            "cube_type": cube_type,
             "scramble": scramble,
             "state": state,
             "time": time,

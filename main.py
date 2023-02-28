@@ -8,7 +8,7 @@ from platform import system
 
 
 def main():
-    global time_text_colour, scramble, scramble_text, scramble_text_rect, time_text, time_text_rect, ao5s_text, ao5s_text_rect, ao12s_text, ao12s_text_rect, cube_type_text, cube_type_text_rect, new_scramble_text, new_scramble_text_rect
+    global time_text_colour, scramble, scramble_text, scramble_text_rect, time_text, time_text_rect, ao5s_text, ao5s_text_rect, ao12s_text, ao12s_text_rect, new_scramble_text, new_scramble_text_rect
 
     # Times list
     read_times_list = times.get_times_list()
@@ -46,7 +46,7 @@ def main():
                         current_time = time.time()
                         solve_time = current_time - start_time
 
-                        times.add_times_list(read_times_list,"3x3x3", scramble, round(solve_time, 2))
+                        times.add_times_list(read_times_list, scramble, round(solve_time, 2))
 
                         read_times_list = times.get_times_list()
                         ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
@@ -60,8 +60,7 @@ def main():
                 scramble = scrambler.get_scramble()
 
         # Mouse hover effects
-        if (cube_type_text_rect.collidepoint(pygame.mouse.get_pos()) or
-                new_scramble_text_rect.collidepoint(pygame.mouse.get_pos())):
+        if (new_scramble_text_rect.collidepoint(pygame.mouse.get_pos())):
             # set the cursor to the hand cursor
             pygame.mouse.set_cursor(pygame.cursors.tri_left)
         else:
@@ -73,8 +72,6 @@ def main():
             solve_time = current_time - start_time
 
         scramble_text, scramble_text_rect = scrambler.update_scramble(AnonymousPro_font,screen_width, screen, scramble, new_scramble_text, new_scramble_text_rect)
-
-        cube_type_text, cube_type_text_rect = cube.update_cube_type(AnonymousPro_font_cube_timer, screen_width, screen)
 
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
         ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao5)
@@ -128,11 +125,6 @@ if __name__ == "__main__":
     AnonymousPro_font_new_scramble = pygame.font.Font("Fonts/AnonymousPro.ttf", 20)
     new_scramble_text = AnonymousPro_font_new_scramble.render("next", True, (34,136,221))
     new_scramble_text_rect = new_scramble_text.get_rect(topright = (screen_width - 160, 70))
-
-    # Cube type display
-    AnonymousPro_font_cube_timer = pygame.font.Font("Fonts/AnonymousPro.ttf", 20)
-    cube_type_text = AnonymousPro_font_cube_timer.render("3x3x3", True, "white")
-    cube_type_text_rect = cube_type_text.get_rect(center = (screen_width//2, 30))
 
     # ao5 and ao12 display
     AnonymousPro_font_aos = pygame.font.Font("Fonts/AnonymousPro.ttf", 60)

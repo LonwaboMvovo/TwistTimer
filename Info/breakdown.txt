@@ -25,9 +25,6 @@ TODOs:
 
 - save settings and current things on json file
 
-- add cube types
-    add cube types to json file
-
 - if click on scramble display opens 3d display
 
 - should add times_list to git ignore
