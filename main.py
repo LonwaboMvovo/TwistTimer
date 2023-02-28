@@ -46,7 +46,7 @@ def main():
                         current_time = time.time()
                         solve_time = current_time - start_time
 
-                        times.add_times_list(read_times_list, scramble, round(solve_time, 2))
+                        times.add_times_list(read_times_list,"3x3x3", scramble, round(solve_time, 2))
 
                         read_times_list = times.get_times_list()
                         ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
