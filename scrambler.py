@@ -28,7 +28,7 @@ def get_scramble():
     return " ".join(scramble)
 
 
-def update_scramble(AnonymousPro_font,screen_width, screen, scramble):
+def update_scramble(AnonymousPro_font,screen_width, screen, scramble, new_scramble_text, new_scramble_text_rect):
 
     scramble_text = AnonymousPro_font.render(scramble, True, "grey")
     scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
@@ -37,6 +37,7 @@ def update_scramble(AnonymousPro_font,screen_width, screen, scramble):
     pygame.draw.line(screen, "grey", (0, 150), (screen_width, 150), width = 3)
 
     screen.blit(scramble_text, scramble_text_rect)
+    screen.blit(new_scramble_text, new_scramble_text_rect)
 
     return scramble_text, scramble_text_rect
 

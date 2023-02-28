@@ -16,6 +16,9 @@ Cube timer:
 - full screen option
 
 TODOs:
+- change scramble (previous/next) but obviously cant previous on first solve_time
+- new scramble button
+
 - are you sure you want to exit popup window
 
 - show current session
@@ -23,13 +26,9 @@ TODOs:
 - current mo3 and best mo3
 - current ao5 and best ao5
 
-- change scramble (previous/next) but obviously cant previous on first solve_time
-
-- save settings on json file
+- save settings and current things on json file
 
 - add cube types
     add cube types to json file
-
-- update icon on taskbar
 
 - if click on scramble display opens 3d display
