@@ -70,7 +70,6 @@ def add_times_list(times_list, scramble, time, state = "OK"):
             "time": time,
             "ao5": ao5,
             "ao12": ao12,
-            "comment": "", # initially should be empty sting, then user can update if they want to add coment
         }
 
     times_list_json = json.dumps(times_list, indent=4)
