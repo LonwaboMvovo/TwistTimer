@@ -1,12 +1,12 @@
 Cube timer:
-- are you sure you want to exit popup window
-
 - show current session
 - current time and best Time
 - current mo3 and best mo3
 - current ao5 and best ao5
 
-- save settings and current things on json file
+- save settings, current things and records on json file
+
+- add "TwistTimer" name top left
 
 - if click on scramble display opens 3d display
 
