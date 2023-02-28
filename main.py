@@ -22,7 +22,7 @@ def main():
     solving = False
     solve_time = 0
 
-    quitting = True
+    quitting = False
 
     while True:
         # Clean screen
@@ -33,16 +33,14 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     quitting = True
-                    pygame.quit()
-                    exit()
 
-                if event.key == pygame.K_SPACE:
+                if not quitting and event.key == pygame.K_SPACE:
                     if not solving:
                         time_text_colour = (0,221,0)
                     else:
                         scramble = scrambler.get_scramble()
 
-            if event.type == pygame.KEYUP:
+            if not quitting and event.type == pygame.KEYUP:
                 if event.key == pygame.K_SPACE:
                     if solving:
                         solving = False
@@ -59,13 +57,20 @@ def main():
                         solving = True
                         start_time = time.time()
 
-            if event.type == pygame.MOUSEBUTTONDOWN and new_scramble_text_rect.collidepoint(pygame.mouse.get_pos()):
-                scramble = scrambler.get_scramble()
-
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if quitting:
+                    if exit_no_bg_rect.collidepoint(pygame.mouse.get_pos()):
+                        quitting = False
+                    elif exit_yes_bg_rect.collidepoint(pygame.mouse.get_pos()):
+                        pygame.quit()
+                        exit()
+                else:
+                    if new_scramble_text_rect.collidepoint(pygame.mouse.get_pos()):
+                        scramble = scrambler.get_scramble()
         # Mouse hover effects
-        if (new_scramble_text_rect.collidepoint(pygame.mouse.get_pos()) or
-            exit_no_bg_rect.collidepoint(pygame.mouse.get_pos()) or
-            exit_yes_bg_rect.collidepoint(pygame.mouse.get_pos())):
+        if ((not quitting and new_scramble_text_rect.collidepoint(pygame.mouse.get_pos())) or
+            (quitting and exit_no_bg_rect.collidepoint(pygame.mouse.get_pos())) or
+            (quitting and exit_yes_bg_rect.collidepoint(pygame.mouse.get_pos()))):
             # set the cursor to the hand cursor
             pygame.mouse.set_cursor(pygame.cursors.tri_left)
         else:
@@ -85,7 +90,7 @@ def main():
         cube.draw_scramble(scramble, screen_width, screen_height, screen)
 
         if quitting:
-            screen.fill("grey", (screen_width/2 - 300, screen_height/2 - 150, 600, 350))
+            screen.fill("white", (screen_width/2 - 300, screen_height/2 - 150, 600, 350))
             pygame.draw.rect(screen, "black", (screen_width/2 - 300, screen_height/2 - 150, 600, 350), width = 5)
 
             screen.blit(exit_text, exit_text_rect)
