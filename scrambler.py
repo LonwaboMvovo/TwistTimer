@@ -29,7 +29,6 @@ def get_scramble():
 
 
 def update_scramble(AnonymousPro_font,screen_width, screen, scramble, new_scramble_text, new_scramble_text_rect):
-
     scramble_text = AnonymousPro_font.render(scramble, True, "grey")
     scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
 

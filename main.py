@@ -119,14 +119,10 @@ if __name__ == "__main__":
     # Time display
     digital_7_font = pygame.font.Font("Fonts/digital-7.ttf", 250)
     time_text_colour = "grey"
-    time_text = digital_7_font.render(f"{0:.2f}", True, time_text_colour)
-    time_text_rect = time_text.get_rect(center = (screen_width//2, screen_height//2))
 
     # Scramble display
     AnonymousPro_font = pygame.font.Font("Fonts/AnonymousPro.ttf", 30)
     scramble = scrambler.get_scramble()
-    scramble_text = AnonymousPro_font.render(scramble, True, "grey")
-    scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
 
     # New scramble display
     AnonymousPro_font_new_scramble = pygame.font.Font("Fonts/AnonymousPro.ttf", 20)
@@ -141,9 +137,5 @@ if __name__ == "__main__":
     # ao5 and ao12 display
     AnonymousPro_font_aos = pygame.font.Font("Fonts/AnonymousPro.ttf", 60)
     aos_text_colour = (34,136,221)
-    ao5s_text = AnonymousPro_font_aos.render("ao5: -", True, aos_text_colour)
-    ao12s_text = AnonymousPro_font_aos.render("ao12: -", True, aos_text_colour)
-    ao5s_text_rect = ao5s_text.get_rect(midtop = (screen_width//2, screen_height//2 + 120))
-    ao12s_text_rect = ao12s_text.get_rect(midtop = (screen_width//2, screen_height//2 + 180))
 
     main()

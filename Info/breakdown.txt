@@ -16,9 +16,6 @@ Cube timer:
 - full screen option
 
 TODOs:
-- change scramble (previous/next) but obviously cant previous on first solve_time
-- new scramble button
-
 - are you sure you want to exit popup window
 
 - show current session
@@ -32,3 +29,5 @@ TODOs:
     add cube types to json file
 
 - if click on scramble display opens 3d display
+
+- should add times_list to git ignore
