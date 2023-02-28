@@ -22,6 +22,8 @@ def main():
     solving = False
     solve_time = 0
 
+    quitting = True
+
     while True:
         # Clean screen
         screen.fill(screen_bg_colour)
@@ -30,6 +32,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
+                    quitting = True
                     pygame.quit()
                     exit()
 
@@ -71,12 +74,27 @@ def main():
             current_time = time.time()
             solve_time = current_time - start_time
 
+
         scramble_text, scramble_text_rect = scrambler.update_scramble(AnonymousPro_font,screen_width, screen, scramble, new_scramble_text, new_scramble_text_rect)
 
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
         ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao5)
         ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao12)
         cube.draw_scramble(scramble, screen_width, screen_height, screen)
+
+        if quitting:
+            screen.fill("grey", (screen_width/2 - 300, screen_height/2 - 150, 600, 350))
+            pygame.draw.rect(screen, "black", (screen_width/2 - 300, screen_height/2 - 150, 600, 350), width = 5)
+
+            screen.blit(exit_text, exit_text_rect)
+
+            screen.blit(exit_text_question, exit_text_rect_question)
+
+            screen.fill((34,136,221), (screen_width/2 + 30, screen_height/2 + 110, 100, 60))
+            screen.blit(exit_text_no, exit_text_no_rect)
+
+            screen.fill((34,136,221), (screen_width/2 + 160, screen_height/2 + 110, 100, 60))
+            screen.blit(exit_text_yes, exit_text_yes_rect)
 
         pygame.display.update()
 
@@ -129,5 +147,20 @@ if __name__ == "__main__":
     # ao5 and ao12 display
     AnonymousPro_font_aos = pygame.font.Font("Fonts/AnonymousPro.ttf", 60)
     aos_text_colour = (34,136,221)
+
+    # Exit pygame display
+    AnonymousPro_font_exit = pygame.font.Font("Fonts/AnonymousPro.ttf", 40)
+    exit_text = AnonymousPro_font_exit.render("Exit TwistTimer", True, "black")
+    exit_text_rect = exit_text.get_rect(midtop = (screen_width/2 - 90, screen_height/2 - 110))
+
+    AnonymousPro_font_exit_question = pygame.font.Font("Fonts/AnonymousPro.ttf", 30)
+    exit_text_question = AnonymousPro_font_exit_question.render("Do you want to exit TwistTimer", True, "black")
+    exit_text_rect_question = exit_text_question.get_rect(midtop = (screen_width/2 - 15, screen_height/2))
+
+    exit_text_no = AnonymousPro_font_exit_question.render("No", True, "white")
+    exit_text_no_rect = exit_text_no.get_rect(center = (screen_width/2 + 80, screen_height/2 + 140))
+
+    exit_text_yes = AnonymousPro_font_exit_question.render("Yes", True, "white")
+    exit_text_yes_rect = exit_text_yes.get_rect(center = (screen_width/2 + 210, screen_height/2 + 140))
 
     main()

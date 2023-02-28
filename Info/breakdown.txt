@@ -1,21 +1,4 @@
 Cube timer:
-- initially 3x3 timer
-- 3x3 scrambles are 20 length and randomly selected from this list:
-    [F, R, U, B, L, D, F2, R2, U2, B2, L2, D2, F', R', U', B', L', D']
-    but without same move in a row
-- want to use pygame eventually
-- save solves as txt file
-- option to share records (twitter, instagram, etc)
-- comp simulator option (with comp asmr, judge, inspec etc)
-- color themes and optoin to make own colour scheme
-- add other cubes later
-- sessions
-- settings
-- reference cstimer
-- how scramble should look
-- full screen option
-
-TODOs:
 - are you sure you want to exit popup window
 
 - show current session
@@ -27,4 +10,8 @@ TODOs:
 
 - if click on scramble display opens 3d display
 
-- should add times_list to git ignore
+- comp simulator option (with comp asmr, judge, inspec etc)
+
+- color themes and optoin to make own colour scheme
+
+- option to share records (twitter, instagram, etc)
