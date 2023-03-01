@@ -105,13 +105,7 @@ def main():
         screen.blit(best_session_text, best_session_text_rect)
 
         screen.blit(time_session_text, time_session_text_rect)
-        if current_solve_time != "-":
-            current_solve_time_text = f"{current_solve_time:.2f}"
-        else:
-            current_solve_time_text = "-"
-        current_time_session_text = AnonymousPro_font_session.render(current_solve_time_text, True, blue_time_text_colour)
-        current_time_session_text_rect = current_time_session_text.get_rect(midtop = (105, 240))
-        screen.blit(current_time_session_text, current_time_session_text_rect)
+        times.update_current_session_time(AnonymousPro_font_session, blue_time_text_colour, screen, current_solve_time)
         best_time_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
         screen.blit(best_time_session_text, best_time_session_text_rect)
 

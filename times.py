@@ -46,6 +46,15 @@ def update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, scre
     return ao12s_text, ao12s_text_rect
 
 
+def update_current_session_time(AnonymousPro_font_session, blue_time_text_colour, screen, current_solve_time):
+    if current_solve_time != "-":
+        current_solve_time_text = f"{current_solve_time:.2f}"
+    else:
+        current_solve_time_text = "-"
+    current_time_session_text = AnonymousPro_font_session.render(current_solve_time_text, True, blue_time_text_colour)
+    current_time_session_text_rect = current_time_session_text.get_rect(midtop = (105, 240))
+    screen.blit(current_time_session_text, current_time_session_text_rect)
+
 def get_times_list():
     with open("Logs/times_list.json", "r") as file:
         read_times_list = json.load(file)
