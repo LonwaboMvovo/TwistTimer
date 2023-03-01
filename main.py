@@ -98,9 +98,31 @@ def main():
 
         screen.blit(twisttimer_logo, twisttimer_logo_rect)
 
+        screen.blit(current_session_text, current_session_text_rect)
+        screen.blit(best_session_text, best_session_text_rect)
+
+        screen.blit(time_session_text, time_session_text_rect)
+        screen.blit(current_time_session_text, current_time_session_text_rect)
+        screen.blit(best_time_session_text, best_time_session_text_rect)
+
+        screen.blit(mo3_session_text, mo3_session_text_rect)
+        screen.blit(current_mo3_session_text, current_mo3_session_text_rect)
+        screen.blit(best_mo3_session_text, best_mo3_session_text_rect)
+
+        screen.blit(ao5_session_text, ao5_session_text_rect)
+        screen.blit(current_ao5_session_text, current_ao5_session_text_rect)
+        screen.blit(best_ao5_session_text, best_ao5_session_text_rect)
+
+        screen.blit(ao12_session_text, ao12_session_text_rect)
+        screen.blit(current_ao12_session_text, current_ao12_session_text_rect)
+        screen.blit(best_ao12_session_text, best_ao12_session_text_rect)
+
+        pygame.draw.line(screen, "grey", (220, 150), (220, screen_height), width = 3)
+
+
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
-        ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao5)
-        ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao12)
+        ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, blue_time_text_colour, screen_width, screen_height, screen, ao5)
+        ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, blue_time_text_colour, screen_width, screen_height, screen, ao12)
 
         cube.draw_scramble(scramble, screen_width, screen_height, screen)
 
@@ -112,10 +134,10 @@ def main():
 
             screen.blit(exit_text_question, exit_text_rect_question)
 
-            screen.fill((34,136,221), exit_no_bg_rect)
+            screen.fill(blue_time_text_colour, exit_no_bg_rect)
             screen.blit(exit_text_no, exit_text_no_rect)
 
-            screen.fill((34,136,221), exit_yes_bg_rect)
+            screen.fill(blue_time_text_colour, exit_yes_bg_rect)
             screen.blit(exit_text_yes, exit_text_yes_rect)
 
         pygame.display.update()
@@ -161,14 +183,15 @@ if __name__ == "__main__":
     AnonymousPro_font = pygame.font.Font("Fonts/AnonymousPro.ttf", 30)
     scramble = scrambler.get_scramble()
 
+    blue_time_text_colour = (34,136,221)
+
     # New scramble display
     AnonymousPro_font_new_scramble = pygame.font.Font("Fonts/AnonymousPro.ttf", 20)
-    new_scramble_text = AnonymousPro_font_new_scramble.render("next", True, (34,136,221))
+    new_scramble_text = AnonymousPro_font_new_scramble.render("next", True, blue_time_text_colour)
     new_scramble_text_rect = new_scramble_text.get_rect(topright = (screen_width - 160, 70))
 
     # ao5 and ao12 display
     AnonymousPro_font_aos = pygame.font.Font("Fonts/AnonymousPro.ttf", 60)
-    aos_text_colour = (34,136,221)
 
     # Exit pygame display
     AnonymousPro_font_exit = pygame.font.Font("Fonts/AnonymousPro.ttf", 40)
@@ -191,5 +214,48 @@ if __name__ == "__main__":
     CubeBold_font = pygame.font.Font("Fonts/CubeBold.ttf", 120)
     twisttimer_logo = CubeBold_font.render("TT", True, (187,136,0))
     twisttimer_logo_rect = twisttimer_logo.get_rect(topleft = (40, 15))
+
+    AnonymousPro_font_session = pygame.font.Font("Fonts/Riverna Side.otf", 15)
+    current_session_text = AnonymousPro_font_session.render("current", True, "white")
+    current_session_text_rect = current_session_text.get_rect(topleft = (80, 200))
+
+    best_session_text = AnonymousPro_font_session.render("best", True, "white")
+    best_session_text_rect = best_session_text.get_rect(topleft = (160, 200))
+
+    time_session_text = AnonymousPro_font_session.render("time", True, "white")
+    time_session_text_rect = time_session_text.get_rect(topleft = (20, 240))
+
+    current_time_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+    current_time_session_text_rect = current_time_session_text.get_rect(topleft = (100, 240))
+
+    best_time_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+    best_time_session_text_rect = best_time_session_text.get_rect(topleft = (168, 240))
+
+    mo3_session_text = AnonymousPro_font_session.render("mo3", True, "white")
+    mo3_session_text_rect = mo3_session_text.get_rect(topleft = (20, 280))
+
+    current_mo3_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+    current_mo3_session_text_rect = current_mo3_session_text.get_rect(topleft = (100, 280))
+
+    best_mo3_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+    best_mo3_session_text_rect = best_mo3_session_text.get_rect(topleft = (168, 280))
+
+    ao5_session_text = AnonymousPro_font_session.render("ao5", True, "white")
+    ao5_session_text_rect = ao5_session_text.get_rect(topleft = (20, 320))
+
+    current_ao5_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+    current_ao5_session_text_rect = current_ao5_session_text.get_rect(topleft = (100, 320))
+
+    best_ao5_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+    best_ao5_session_text_rect = best_ao5_session_text.get_rect(topleft = (168, 320))
+
+    ao12_session_text = AnonymousPro_font_session.render("ao12", True, "white")
+    ao12_session_text_rect = ao12_session_text.get_rect(topleft = (20, 360))
+
+    current_ao12_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+    current_ao12_session_text_rect = current_ao12_session_text.get_rect(topleft = (100, 360))
+
+    best_ao12_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+    best_ao12_session_text_rect = best_ao12_session_text.get_rect(topleft = (168, 360))
 
     main()
