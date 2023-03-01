@@ -14,9 +14,11 @@ def main():
     # Times list from json file
     read_times_list = times.get_times_list()
     if len(read_times_list.keys()) == 0:
+        current_solve_time = "-"
         ao5 = "-"
         ao12 = "-"
     else:
+        current_solve_time = read_times_list[str(len(read_times_list.keys()) - 1)]["time"]
         ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
         ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
 
@@ -56,6 +58,7 @@ def main():
                     times.add_times_list(read_times_list, scramble, round(solve_time, 2))
 
                     read_times_list = times.get_times_list()
+                    current_solve_time = read_times_list[str(len(read_times_list.keys()) - 1)]["time"]
                     ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
                     ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
                 else:
@@ -102,23 +105,39 @@ def main():
         screen.blit(best_session_text, best_session_text_rect)
 
         screen.blit(time_session_text, time_session_text_rect)
+        if current_solve_time != "-":
+            current_solve_time_text = f"{current_solve_time:.2f}"
+        else:
+            current_solve_time_text = "-"
+        current_time_session_text = AnonymousPro_font_session.render(current_solve_time_text, True, blue_time_text_colour)
+        current_time_session_text_rect = current_time_session_text.get_rect(midtop = (105, 240))
         screen.blit(current_time_session_text, current_time_session_text_rect)
+        best_time_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
         screen.blit(best_time_session_text, best_time_session_text_rect)
 
-        screen.blit(mo3_session_text, mo3_session_text_rect)
-        screen.blit(current_mo3_session_text, current_mo3_session_text_rect)
-        screen.blit(best_mo3_session_text, best_mo3_session_text_rect)
-
         screen.blit(ao5_session_text, ao5_session_text_rect)
+        if ao5 != "-":
+            ao5_text = f"{ao5:.2f}"
+        else:
+            ao5_text = "-"
+        current_ao5_session_text = AnonymousPro_font_session.render(ao5_text, True, blue_time_text_colour)
+        current_ao5_session_text_rect = current_ao5_session_text.get_rect(midtop = (105, 280))
         screen.blit(current_ao5_session_text, current_ao5_session_text_rect)
+        best_ao5_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
         screen.blit(best_ao5_session_text, best_ao5_session_text_rect)
 
         screen.blit(ao12_session_text, ao12_session_text_rect)
+        if ao12 != "-":
+            ao12_text = f"{ao12:.2f}"
+        else:
+            ao12_text = "-"
+        current_ao12_session_text = AnonymousPro_font_session.render(ao12_text, True, blue_time_text_colour)
+        current_ao12_session_text_rect = current_ao12_session_text.get_rect(midtop = (105, 320))
         screen.blit(current_ao12_session_text, current_ao12_session_text_rect)
+        best_ao12_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
         screen.blit(best_ao12_session_text, best_ao12_session_text_rect)
 
         pygame.draw.line(screen, "grey", (220, 150), (220, screen_height), width = 3)
-
 
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
         ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, blue_time_text_colour, screen_width, screen_height, screen, ao5)
@@ -215,6 +234,7 @@ if __name__ == "__main__":
     twisttimer_logo = CubeBold_font.render("TT", True, (187,136,0))
     twisttimer_logo_rect = twisttimer_logo.get_rect(topleft = (40, 15))
 
+    # Session stats
     AnonymousPro_font_session = pygame.font.Font("Fonts/Riverna Side.otf", 15)
     current_session_text = AnonymousPro_font_session.render("current", True, "white")
     current_session_text_rect = current_session_text.get_rect(topleft = (80, 200))
@@ -226,36 +246,27 @@ if __name__ == "__main__":
     time_session_text_rect = time_session_text.get_rect(topleft = (20, 240))
 
     current_time_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
-    current_time_session_text_rect = current_time_session_text.get_rect(topleft = (100, 240))
+    current_time_session_text_rect = current_time_session_text.get_rect(midtop = (105, 240))
 
     best_time_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
-    best_time_session_text_rect = best_time_session_text.get_rect(topleft = (168, 240))
-
-    mo3_session_text = AnonymousPro_font_session.render("mo3", True, "white")
-    mo3_session_text_rect = mo3_session_text.get_rect(topleft = (20, 280))
-
-    current_mo3_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
-    current_mo3_session_text_rect = current_mo3_session_text.get_rect(topleft = (100, 280))
-
-    best_mo3_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
-    best_mo3_session_text_rect = best_mo3_session_text.get_rect(topleft = (168, 280))
+    best_time_session_text_rect = best_time_session_text.get_rect(midtop = (173, 240))
 
     ao5_session_text = AnonymousPro_font_session.render("ao5", True, "white")
-    ao5_session_text_rect = ao5_session_text.get_rect(topleft = (20, 320))
+    ao5_session_text_rect = ao5_session_text.get_rect(topleft = (20, 280))
 
     current_ao5_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
-    current_ao5_session_text_rect = current_ao5_session_text.get_rect(topleft = (100, 320))
+    current_ao5_session_text_rect = current_ao5_session_text.get_rect(midtop = (105, 280))
 
     best_ao5_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
-    best_ao5_session_text_rect = best_ao5_session_text.get_rect(topleft = (168, 320))
+    best_ao5_session_text_rect = best_ao5_session_text.get_rect(midtop = (173, 280))
 
     ao12_session_text = AnonymousPro_font_session.render("ao12", True, "white")
-    ao12_session_text_rect = ao12_session_text.get_rect(topleft = (20, 360))
+    ao12_session_text_rect = ao12_session_text.get_rect(topleft = (20, 320))
 
     current_ao12_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
-    current_ao12_session_text_rect = current_ao12_session_text.get_rect(topleft = (100, 360))
+    current_ao12_session_text_rect = current_ao12_session_text.get_rect(midtop = (105, 320))
 
     best_ao12_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
-    best_ao12_session_text_rect = best_ao12_session_text.get_rect(topleft = (168, 360))
+    best_ao12_session_text_rect = best_ao12_session_text.get_rect(midtop = (173, 320))
 
     main()
