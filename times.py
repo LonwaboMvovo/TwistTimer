@@ -55,6 +55,17 @@ def update_current_session_time(AnonymousPro_font_session, blue_time_text_colour
     current_time_session_text_rect = current_time_session_text.get_rect(midtop = (105, 240))
     screen.blit(current_time_session_text, current_time_session_text_rect)
 
+
+def update_current_session_ao5(AnonymousPro_font_session, blue_time_text_colour, screen, ao5):
+    if ao5 != "-":
+        ao5_text = f"{ao5:.2f}"
+    else:
+        ao5_text = "-"
+    current_ao5_session_text = AnonymousPro_font_session.render(ao5_text, True, blue_time_text_colour)
+    current_ao5_session_text_rect = current_ao5_session_text.get_rect(midtop = (105, 280))
+    screen.blit(current_ao5_session_text, current_ao5_session_text_rect)
+
+
 def get_times_list():
     with open("Logs/times_list.json", "r") as file:
         read_times_list = json.load(file)

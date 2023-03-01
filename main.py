@@ -110,13 +110,7 @@ def main():
         screen.blit(best_time_session_text, best_time_session_text_rect)
 
         screen.blit(ao5_session_text, ao5_session_text_rect)
-        if ao5 != "-":
-            ao5_text = f"{ao5:.2f}"
-        else:
-            ao5_text = "-"
-        current_ao5_session_text = AnonymousPro_font_session.render(ao5_text, True, blue_time_text_colour)
-        current_ao5_session_text_rect = current_ao5_session_text.get_rect(midtop = (105, 280))
-        screen.blit(current_ao5_session_text, current_ao5_session_text_rect)
+        times.update_current_session_ao5(AnonymousPro_font_session, blue_time_text_colour, screen, ao5)
         best_ao5_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
         screen.blit(best_ao5_session_text, best_ao5_session_text_rect)
 
