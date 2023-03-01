@@ -47,7 +47,7 @@ def update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, scre
 
 
 def get_times_list():
-    with open("times_list.json", "r") as file:
+    with open("Logs/times_list.json", "r") as file:
         read_times_list = json.load(file)
 
     return read_times_list
@@ -79,5 +79,5 @@ def add_times_list(times_list, scramble, time, state = "OK"):
 
     times_list_json = json.dumps(times_list, indent=4)
 
-    with open("times_list.json", "w") as outfile:
+    with open("Logs/times_list.json", "w") as outfile:
         outfile.write(times_list_json)

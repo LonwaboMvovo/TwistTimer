@@ -1,9 +1,7 @@
 Cube timer:
-- add "TwistTimer" name top left
-
 - show current session
 - current time and best Time
 - current mo3 and best mo3
 - current ao5 and best ao5
 
-- save settings, current things and records on json file
+- save records on json file
