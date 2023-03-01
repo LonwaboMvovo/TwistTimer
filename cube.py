@@ -4,6 +4,7 @@ import pygame
 def move_side(cube_state, side, move):
     new_cube_state = cube_state.copy()
 
+    # Move green side "move" times
     if side == "F":
         while move:
             new_cube_state[6] = cube_state[17]
@@ -31,6 +32,7 @@ def move_side(cube_state, side, move):
             new_cube_state = cube_state.copy()
 
             move -= 1
+    # Move red side "move" times
     elif side == "R":
         while move:
             new_cube_state[8] = cube_state[26]
@@ -58,6 +60,7 @@ def move_side(cube_state, side, move):
             new_cube_state = cube_state.copy()
 
             move -= 1
+    # Move white side "move" times
     elif side == "U":
         while move:
             new_cube_state[38] = cube_state[11]
@@ -85,6 +88,7 @@ def move_side(cube_state, side, move):
             new_cube_state = cube_state.copy()
 
             move -= 1
+    # Move blue side "move" times
     elif side == "B":
         while move:
             new_cube_state[2] = cube_state[35]
@@ -112,6 +116,7 @@ def move_side(cube_state, side, move):
             new_cube_state = cube_state.copy()
 
             move -= 1
+    # Move orange side "move" times
     elif side == "L":
         while move:
             new_cube_state[0] = cube_state[44]
@@ -139,6 +144,7 @@ def move_side(cube_state, side, move):
             new_cube_state = cube_state.copy()
 
             move -= 1
+    # Move yellow side "move" times
     else:
         while move:
             new_cube_state[24] = cube_state[15]
@@ -199,13 +205,14 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     ]
 
     # Scramble cube state:
-    new_cube_state = cube_state.copy()
-
     for scramble_move in scramble.split(" "):
+        # Normal side move
         if len(scramble_move) == 1:
             new_cube_state = move_side(cube_state, scramble_move[0], 1)
+        # Double side move
         elif scramble_move[1] == "2":
             new_cube_state = move_side(cube_state, scramble_move[0], 2)
+        # Side move prime but sending 3 moves which is basically the same thing
         else:
             new_cube_state = move_side(cube_state, scramble_move[0], 3)
 
@@ -214,10 +221,11 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     display_left = screen_width - 250
     display_top = screen_height - 250
 
+    # Scramble display area
     screen.fill((0,51,68), (display_left, display_top, 250, 250))
     pygame.draw.rect(screen, "grey", (display_left, display_top, 253, 253), width = 3)
 
-    # White
+    # White side
     screen.fill("black", (display_left + 78, display_top + 50, 50, 50))
     screen.fill(cube_state[0], (display_left + 78, display_top + 50, 16, 16))
     screen.fill(cube_state[1], (display_left + 95, display_top + 50, 16, 16))
@@ -228,7 +236,7 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     screen.fill(cube_state[6], (display_left + 78, display_top + 84, 16, 16))
     screen.fill(cube_state[7], (display_left + 95, display_top + 84, 16, 16))
     screen.fill(cube_state[8], (display_left + 112, display_top + 84, 16, 16))
-    # Orange
+    # Orange side
     screen.fill("black", (display_left + 25, display_top + 103, 50, 50))
     screen.fill(cube_state[9], (display_left + 25, display_top + 103, 16, 16))
     screen.fill(cube_state[10], (display_left + 42, display_top + 103, 16, 16))
@@ -239,7 +247,7 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     screen.fill(cube_state[15], (display_left + 25, display_top + 137, 16, 16))
     screen.fill(cube_state[16], (display_left + 42, display_top + 137, 16, 16))
     screen.fill(cube_state[17], (display_left + 59, display_top + 137, 16, 16))
-    # Green
+    # Green side
     screen.fill("black", (display_left + 78, display_top + 103, 50, 50))
     screen.fill(cube_state[18], (display_left + 78, display_top + 103, 16, 16))
     screen.fill(cube_state[19], (display_left + 95, display_top + 103, 16, 16))
@@ -250,7 +258,7 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     screen.fill(cube_state[24], (display_left + 78, display_top + 137, 16, 16))
     screen.fill(cube_state[25], (display_left + 95, display_top + 137, 16, 16))
     screen.fill(cube_state[26], (display_left + 112, display_top + 137, 16, 16))
-    # Red
+    # Red side
     screen.fill("black", (display_left + 25 + 53*2, display_top + 50 + 53, 50, 50))
     screen.fill(cube_state[27], (display_left + 131, display_top + 103, 16, 16))
     screen.fill(cube_state[28], (display_left + 148, display_top + 103, 16, 16))
@@ -261,7 +269,7 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     screen.fill(cube_state[33], (display_left + 131, display_top + 137, 16, 16))
     screen.fill(cube_state[34], (display_left + 148, display_top + 137, 16, 16))
     screen.fill(cube_state[35], (display_left + 165, display_top + 137, 16, 16))
-    # Blue
+    # Blue side
     screen.fill("black", (display_left + 25 + 53*3, display_top + 50 + 53, 50, 50))
     screen.fill(cube_state[36], (display_left + 184, display_top + 103, 16, 16))
     screen.fill(cube_state[37], (display_left + 201, display_top + 103, 16, 16))
@@ -272,7 +280,7 @@ def draw_scramble(scramble, screen_width, screen_height, screen):
     screen.fill(cube_state[42], (display_left + 184, display_top + 137, 16, 16))
     screen.fill(cube_state[43], (display_left + 201, display_top + 137, 16, 16))
     screen.fill(cube_state[44], (display_left + 218, display_top + 137, 16, 16))
-    # Yell
+    # Yellow side
     screen.fill("black", (display_left + 25 + 53, display_top + 50 + 53*2, 50, 50))
     screen.fill(cube_state[45], (display_left + 78, display_top + 156, 16, 16))
     screen.fill(cube_state[46], (display_left + 95, display_top + 156, 16, 16))

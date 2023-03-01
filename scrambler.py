@@ -5,10 +5,12 @@ from random import choice as random_choice
 
 
 def get_scramble():
+    # All possible scramble moves
     scramble_moves = ["F", "R", "U", "B", "L", "D", "F2", "R2", "U2", "B2", "L2", "D2", "F'", "R'", "U'", "B'", "L'", "D'"]
 
     scramble = []
 
+    # Add twenty random moves without back to back moves of the same side
     for _ in range(20):
         if len(scramble) == 0:
             scramble.append(random_choice(scramble_moves))
@@ -29,6 +31,7 @@ def get_scramble():
 
 
 def update_scramble(AnonymousPro_font,screen_width, screen, scramble, new_scramble_text, new_scramble_text_rect):
+    # Scramble text display
     scramble_text = AnonymousPro_font.render(scramble, True, "grey")
     scramble_text_rect = scramble_text.get_rect(center = (screen_width//2, 80))
 

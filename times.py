@@ -5,8 +5,10 @@ import json
 def update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen):
     datetime_solve_time = datetime.datetime.fromtimestamp(solve_time)
 
+    # Format in min/sec/millisec
     if int(solve_time) > 60:
         formatted_time = datetime_solve_time.strftime(f'%{digit_char}M:%S.%f')
+    # Format in sec/millisec
     else:
         formatted_time = datetime_solve_time.strftime(f'%{digit_char}S.%f')
 
@@ -19,6 +21,7 @@ def update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen
 
 
 def update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao5_time):
+    # Average of 5 display
     if ao5_time == "-":
         ao5s_text = AnonymousPro_font_aos.render("ao5: -", True, aos_text_colour)
     else:
@@ -31,6 +34,7 @@ def update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, scree
 
 
 def update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao12_time):
+    # Average of 12 display
     if ao12_time == "-":
         ao12s_text = AnonymousPro_font_aos.render("ao12: -", True, aos_text_colour)
     else:
@@ -50,6 +54,7 @@ def get_times_list():
 
 
 def add_times_list(times_list, scramble, time, state = "OK"):
+    # Add solve to times_list json file
     current_date = datetime.date.today()
     formatted_date = current_date.strftime('%d/%m/%Y')
 

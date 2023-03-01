@@ -8,9 +8,10 @@ from platform import system
 
 
 def main():
+    # Prefer globals than parameters for this since not returning from this funciton and it might be better for memory...not sure
     global time_text_colour, scramble, scramble_text, scramble_text_rect, time_text, time_text_rect, ao5s_text, ao5s_text_rect, ao12s_text, ao12s_text_rect, new_scramble_text, new_scramble_text_rect
 
-    # Times list
+    # Times list from json file
     read_times_list = times.get_times_list()
     if len(read_times_list.keys()) == 0:
         ao5 = "-"
@@ -19,9 +20,11 @@ def main():
         ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
         ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
 
+    # Current solving state and time
     solving = False
     solve_time = 0
 
+    # Used for exit confirmation window
     quitting = False
 
     while True:
@@ -31,42 +34,50 @@ def main():
         # Check events
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
+                # Escape key activates exit confirmation window
                 if event.key == pygame.K_ESCAPE:
                     quitting = True
 
                 if not quitting and event.key == pygame.K_SPACE:
+                    # Turn green to indicate about to start timer
                     if not solving:
                         time_text_colour = (0,221,0)
                     else:
+                        # Get new scramble
                         scramble = scrambler.get_scramble()
 
-            if not quitting and event.type == pygame.KEYUP:
-                if event.key == pygame.K_SPACE:
-                    if solving:
-                        solving = False
-                        current_time = time.time()
-                        solve_time = current_time - start_time
+            if not quitting and event.type == pygame.KEYUP and event.key == pygame.K_SPACE:
+                # Stop timer and update times
+                if solving:
+                    solving = False
+                    current_time = time.time()
+                    solve_time = current_time - start_time
 
-                        times.add_times_list(read_times_list, scramble, round(solve_time, 2))
+                    times.add_times_list(read_times_list, scramble, round(solve_time, 2))
 
-                        read_times_list = times.get_times_list()
-                        ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
-                        ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
-                    else:
-                        time_text_colour = "grey"
-                        solving = True
-                        start_time = time.time()
+                    read_times_list = times.get_times_list()
+                    ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
+                    ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
+                else:
+                    # Initiate timer
+                    time_text_colour = "grey"
+                    solving = True
+                    start_time = time.time()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if quitting:
+                    # Answer no to quit confirmation message
                     if exit_no_bg_rect.collidepoint(pygame.mouse.get_pos()):
                         quitting = False
+                    # Answer yes to quit confirmation message and quit program
                     elif exit_yes_bg_rect.collidepoint(pygame.mouse.get_pos()):
                         pygame.quit()
                         exit()
                 else:
+                    # get new scramble
                     if new_scramble_text_rect.collidepoint(pygame.mouse.get_pos()):
                         scramble = scrambler.get_scramble()
+
         # Mouse hover effects
         if ((not quitting and new_scramble_text_rect.collidepoint(pygame.mouse.get_pos())) or
             (quitting and exit_no_bg_rect.collidepoint(pygame.mouse.get_pos())) or
@@ -77,16 +88,18 @@ def main():
             # set the cursor to the default arrow cursor
             pygame.mouse.set_cursor(pygame.cursors.arrow)
 
+        # Update solve time
         if solving:
             current_time = time.time()
             solve_time = current_time - start_time
 
-
+        # Displays:
         scramble_text, scramble_text_rect = scrambler.update_scramble(AnonymousPro_font,screen_width, screen, scramble, new_scramble_text, new_scramble_text_rect)
 
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
         ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao5)
         ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao12)
+
         cube.draw_scramble(scramble, screen_width, screen_height, screen)
 
         if quitting:
@@ -171,5 +184,7 @@ if __name__ == "__main__":
     exit_yes_bg_rect = pygame.Rect((screen_width/2 + 160, screen_height/2 + 110, 100, 60))
     exit_text_yes = AnonymousPro_font_exit_question.render("Yes", True, "white")
     exit_text_yes_rect = exit_text_yes.get_rect(center = (screen_width/2 + 210, screen_height/2 + 140))
+
+    # TwistTimer Logo
 
     main()
