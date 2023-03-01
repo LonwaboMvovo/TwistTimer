@@ -96,6 +96,8 @@ def main():
         # Displays:
         scramble_text, scramble_text_rect = scrambler.update_scramble(AnonymousPro_font,screen_width, screen, scramble, new_scramble_text, new_scramble_text_rect)
 
+        screen.blit(twisttimer_logo, twisttimer_logo_rect)
+
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
         ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao5)
         ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, aos_text_colour, screen_width, screen_height, screen, ao12)
@@ -186,5 +188,8 @@ if __name__ == "__main__":
     exit_text_yes_rect = exit_text_yes.get_rect(center = (screen_width/2 + 210, screen_height/2 + 140))
 
     # TwistTimer Logo
+    CubeBold_font = pygame.font.Font("Fonts/CubeBold.ttf", 120)
+    twisttimer_logo = CubeBold_font.render("TT", True, (187,136,0))
+    twisttimer_logo_rect = twisttimer_logo.get_rect(topleft = (40, 15))
 
     main()
