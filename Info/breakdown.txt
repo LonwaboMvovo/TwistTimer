@@ -1,17 +1,9 @@
 Cube timer:
+- add "TwistTimer" name top left
+
 - show current session
 - current time and best Time
 - current mo3 and best mo3
 - current ao5 and best ao5
 
 - save settings, current things and records on json file
-
-- add "TwistTimer" name top left
-
-- if click on scramble display opens 3d display
-
-- comp simulator option (with comp asmr, judge, inspec etc)
-
-- color themes and optoin to make own colour scheme
-
-- option to share records (twitter, instagram, etc)
