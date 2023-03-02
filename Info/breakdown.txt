@@ -1,2 +1,0 @@
-Cube timer:
-- fix how averages are calculated by removing fastest and slowest then calculating remaining average like wca

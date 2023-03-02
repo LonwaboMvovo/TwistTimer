@@ -187,6 +187,7 @@ def add_times_list(times_list, scramble, time, state = "OK"):
 
     ao5 = "-"
     if len(times_list.keys()) > 4:
+        print("yes", times_list.keys())
         last_5_times = [times_list[t]["time"] for t in list(times_list.keys())[-5:]]
         last_5_times.remove(min(last_5_times))
         last_5_times.remove(max(last_5_times))
@@ -194,6 +195,7 @@ def add_times_list(times_list, scramble, time, state = "OK"):
 
     ao12 = "-"
     if len(times_list.keys()) > 11:
+        print("yes12", times_list.keys())
         last_12_times = [times_list[t]["time"] for t in list(times_list.keys())[-12:]]
         last_12_times.remove(min(last_12_times))
         last_12_times.remove(max(last_12_times))
