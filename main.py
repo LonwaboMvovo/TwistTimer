@@ -121,23 +121,23 @@ def main():
         screen.blit(best_session_text, best_session_text_rect)
 
         screen.blit(time_session_text, time_session_text_rect)
-        times.update_current_session_time(AnonymousPro_font_session, blue_time_text_colour, screen, current_solve_time)
-        times.update_record_session_time(AnonymousPro_font_session, blue_time_text_colour, screen, time_pb, best_time_session_text_rect)
+        times.update_current_session_time(AnonymousPro_font_session, blue_time_text_colour, digit_char, screen, current_solve_time)
+        times.update_record_session_time(AnonymousPro_font_session, blue_time_text_colour, digit_char, screen, time_pb, best_time_session_text_rect)
 
         screen.blit(ao5_session_text, ao5_session_text_rect)
-        times.update_current_session_ao5(AnonymousPro_font_session, blue_time_text_colour, screen, ao5)
-        times.update_record_session_ao5(AnonymousPro_font_session, blue_time_text_colour, screen, ao5_pb, best_ao5_session_text_rect)
+        times.update_current_session_ao5(AnonymousPro_font_session, blue_time_text_colour, digit_char, screen, ao5)
+        times.update_record_session_ao5(AnonymousPro_font_session, blue_time_text_colour, digit_char, screen, ao5_pb, best_ao5_session_text_rect)
 
         screen.blit(ao12_session_text, ao12_session_text_rect)
-        times.update_current_session_ao12(AnonymousPro_font_session, blue_time_text_colour, screen, ao12)
-        times.update_record_session_ao12(AnonymousPro_font_session, blue_time_text_colour, screen, ao12_pb, best_ao12_session_text_rect)
+        times.update_current_session_ao12(AnonymousPro_font_session, blue_time_text_colour, digit_char, screen, ao12)
+        times.update_record_session_ao12(AnonymousPro_font_session, blue_time_text_colour, digit_char, screen, ao12_pb, best_ao12_session_text_rect)
 
         pygame.draw.line(screen, "grey", (220, 150), (220, screen_height), width = 3)
 
         # Current times (time/ao5/ao12)
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
-        ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, blue_time_text_colour, screen_width, screen_height, screen, ao5)
-        ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, blue_time_text_colour, screen_width, screen_height, screen, ao12)
+        ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, blue_time_text_colour, digit_char, screen_width, screen_height, screen, ao5)
+        ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, blue_time_text_colour, digit_char, screen_width, screen_height, screen, ao12)
 
         # Cube scramble
         cube.draw_scramble(scramble, screen_width, screen_height, screen)
