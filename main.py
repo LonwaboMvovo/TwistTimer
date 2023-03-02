@@ -22,6 +22,12 @@ def main():
         ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
         ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
 
+    # Records from json file
+    read_records = times.get_records()
+    time_pb = read_records["time"]
+    ao5_pb = read_records["ao5"]
+    ao12_pb = read_records["ao12"]
+
     # Current solving state and time
     solving = False
     solve_time = 0
@@ -97,36 +103,42 @@ def main():
             solve_time = current_time - start_time
 
         # Displays:
+        # Scramble
         scramble_text, scramble_text_rect = scrambler.update_scramble(AnonymousPro_font,screen_width, screen, scramble, new_scramble_text, new_scramble_text_rect)
 
+        # Logo
         screen.blit(twisttimer_logo, twisttimer_logo_rect)
 
+        # Session
         screen.blit(current_session_text, current_session_text_rect)
         screen.blit(best_session_text, best_session_text_rect)
 
         screen.blit(time_session_text, time_session_text_rect)
         times.update_current_session_time(AnonymousPro_font_session, blue_time_text_colour, screen, current_solve_time)
-        best_time_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+        best_time_session_text = AnonymousPro_font_session.render(time_pb, True, blue_time_text_colour)
         screen.blit(best_time_session_text, best_time_session_text_rect)
 
         screen.blit(ao5_session_text, ao5_session_text_rect)
         times.update_current_session_ao5(AnonymousPro_font_session, blue_time_text_colour, screen, ao5)
-        best_ao5_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+        best_ao5_session_text = AnonymousPro_font_session.render(ao5_pb, True, blue_time_text_colour)
         screen.blit(best_ao5_session_text, best_ao5_session_text_rect)
 
         screen.blit(ao12_session_text, ao12_session_text_rect)
         times.update_current_session_ao12(AnonymousPro_font_session, blue_time_text_colour, screen, ao12)
-        best_ao12_session_text = AnonymousPro_font_session.render("-", True, blue_time_text_colour)
+        best_ao12_session_text = AnonymousPro_font_session.render(ao12_pb, True, blue_time_text_colour)
         screen.blit(best_ao12_session_text, best_ao12_session_text_rect)
 
         pygame.draw.line(screen, "grey", (220, 150), (220, screen_height), width = 3)
 
+        # Current times (time/ao5/ao12)
         time_text, time_text_rect = times.update_time(solve_time, time_text_colour, digit_char, digital_7_font, screen_width, screen_height, screen)
         ao5s_text, ao5s_text_rect = times.update_timer_ao5(AnonymousPro_font_aos, blue_time_text_colour, screen_width, screen_height, screen, ao5)
         ao12s_text, ao12s_text_rect = times.update_timer_ao12(AnonymousPro_font_aos, blue_time_text_colour, screen_width, screen_height, screen, ao12)
 
+        # Cube scramble
         cube.draw_scramble(scramble, screen_width, screen_height, screen)
 
+        # Exit confirmation
         if quitting:
             screen.fill("white", (screen_width/2 - 300, screen_height/2 - 150, 600, 350))
             pygame.draw.rect(screen, "black", (screen_width/2 - 300, screen_height/2 - 150, 600, 350), width = 5)
