@@ -1,11 +1,4 @@
 Cube timer:
-- show current session
-- current time and best Time
-- current mo3 and best mo3
-- current ao5 and best ao5
-
-- save records on json file
-
 - fix how averages are calculated by removing fastest and slowest then calculating remaining average like wca
 
 - fix black lines and colours for scramble display

@@ -122,18 +122,15 @@ def main():
 
         screen.blit(time_session_text, time_session_text_rect)
         times.update_current_session_time(AnonymousPro_font_session, blue_time_text_colour, screen, current_solve_time)
-        best_time_session_text = AnonymousPro_font_session.render(str(time_pb), True, blue_time_text_colour)
-        screen.blit(best_time_session_text, best_time_session_text_rect)
+        times.update_record_session_time(AnonymousPro_font_session, blue_time_text_colour, screen, time_pb, best_time_session_text_rect)
 
         screen.blit(ao5_session_text, ao5_session_text_rect)
         times.update_current_session_ao5(AnonymousPro_font_session, blue_time_text_colour, screen, ao5)
-        best_ao5_session_text = AnonymousPro_font_session.render(str(ao5_pb), True, blue_time_text_colour)
-        screen.blit(best_ao5_session_text, best_ao5_session_text_rect)
+        times.update_record_session_ao5(AnonymousPro_font_session, blue_time_text_colour, screen, ao5_pb, best_ao5_session_text_rect)
 
         screen.blit(ao12_session_text, ao12_session_text_rect)
         times.update_current_session_ao12(AnonymousPro_font_session, blue_time_text_colour, screen, ao12)
-        best_ao12_session_text = AnonymousPro_font_session.render(str(ao12_pb), True, blue_time_text_colour)
-        screen.blit(best_ao12_session_text, best_ao12_session_text_rect)
+        times.update_record_session_ao12(AnonymousPro_font_session, blue_time_text_colour, screen, ao12_pb, best_ao12_session_text_rect)
 
         pygame.draw.line(screen, "grey", (220, 150), (220, screen_height), width = 3)
 

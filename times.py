@@ -56,6 +56,21 @@ def update_current_session_time(AnonymousPro_font_session, blue_time_text_colour
     screen.blit(current_time_session_text, current_time_session_text_rect)
 
 
+def update_record_session_time(AnonymousPro_font_session, blue_time_text_colour, screen, time_pb, best_time_session_text_rect):
+    best_time_session_text = AnonymousPro_font_session.render(str(time_pb), True, blue_time_text_colour)
+    screen.blit(best_time_session_text, best_time_session_text_rect)
+
+
+def update_record_session_ao5(AnonymousPro_font_session, blue_time_text_colour, screen, ao5_pb, best_ao5_session_text_rect):
+    best_ao5_session_text = AnonymousPro_font_session.render(str(ao5_pb), True, blue_time_text_colour)
+    screen.blit(best_ao5_session_text, best_ao5_session_text_rect)
+
+
+def update_record_session_ao12(AnonymousPro_font_session, blue_time_text_colour, screen, ao12_pb, best_ao12_session_text_rect):
+    best_ao12_session_text = AnonymousPro_font_session.render(str(ao12_pb), True, blue_time_text_colour)
+    screen.blit(best_ao12_session_text, best_ao12_session_text_rect)
+
+
 def update_current_session_ao5(AnonymousPro_font_session, blue_time_text_colour, screen, ao5):
     if ao5 != "-":
         ao5_text = f"{ao5:.2f}"
