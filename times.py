@@ -71,14 +71,14 @@ def update_current_session_time(AnonymousPro_font_session, blue_time_text_colour
         datetime_current_solve_time = datetime.datetime.fromtimestamp(current_solve_time)
 
         if int(current_solve_time) > 59:
-            current_solve_time_text = datetime_current_solve_time.strftime(f'%{digit_char}M:%S.%f')
+            current_solve_time_text = datetime_current_solve_time.strftime(f'%{digit_char}M:%S.%f')[:-4]
         # Format in sec/millisec
         else:
-            current_solve_time_text = datetime_current_solve_time.strftime(f'%{digit_char}S.%f')
+            current_solve_time_text = datetime_current_solve_time.strftime(f'%{digit_char}S.%f')[:-4]
     else:
         current_solve_time_text = "-"
 
-    current_time_session_text = AnonymousPro_font_session.render(current_solve_time_text[:-4], True, blue_time_text_colour)
+    current_time_session_text = AnonymousPro_font_session.render(current_solve_time_text, True, blue_time_text_colour)
     current_time_session_text_rect = current_time_session_text.get_rect(midtop = (105, 240))
     screen.blit(current_time_session_text, current_time_session_text_rect)
 
@@ -89,14 +89,14 @@ def update_record_session_time(AnonymousPro_font_session, blue_time_text_colour,
         datetime_time_pb = datetime.datetime.fromtimestamp(time_pb)
 
         if int(time_pb) > 59:
-            time_pb_text = datetime_time_pb.strftime(f'%{digit_char}M:%S.%f')
+            time_pb_text = datetime_time_pb.strftime(f'%{digit_char}M:%S.%f')[:-4]
         # Format in sec/millisec
         else:
-            time_pb_text = datetime_time_pb.strftime(f'%{digit_char}S.%f')
+            time_pb_text = datetime_time_pb.strftime(f'%{digit_char}S.%f')[:-4]
     else:
         time_pb_text = "-"
     
-    best_time_session_text = AnonymousPro_font_session.render(time_pb_text[:-4], True, blue_time_text_colour)
+    best_time_session_text = AnonymousPro_font_session.render(time_pb_text, True, blue_time_text_colour)
     best_time_session_text_rect = best_time_session_text.get_rect(midtop = (173, 240))
     screen.blit(best_time_session_text, best_time_session_text_rect)
 
@@ -107,14 +107,14 @@ def update_record_session_ao5(AnonymousPro_font_session, blue_time_text_colour, 
         datetime_ao5_pb = datetime.datetime.fromtimestamp(ao5_pb)
 
         if int(ao5_pb) > 59:
-            ao5_pb_text = datetime_ao5_pb.strftime(f'%{digit_char}M:%S.%f')
+            ao5_pb_text = datetime_ao5_pb.strftime(f'%{digit_char}M:%S.%f')[:-4]
         # Format in sec/millisec
         else:
-            ao5_pb_text = datetime_ao5_pb.strftime(f'%{digit_char}S.%f')
+            ao5_pb_text = datetime_ao5_pb.strftime(f'%{digit_char}S.%f')[:-4]
     else:
         ao5_pb_text = "-"
 
-    best_ao5_session_text = AnonymousPro_font_session.render(ao5_pb_text[:-4], True, blue_time_text_colour)
+    best_ao5_session_text = AnonymousPro_font_session.render(ao5_pb_text, True, blue_time_text_colour)
     best_ao5_session_text_rect = best_ao5_session_text.get_rect(midtop = (173, 280))
     screen.blit(best_ao5_session_text, best_ao5_session_text_rect)
 
@@ -125,14 +125,14 @@ def update_record_session_ao12(AnonymousPro_font_session, blue_time_text_colour,
         datetime_ao12_pb = datetime.datetime.fromtimestamp(ao12_pb)
 
         if int(ao12_pb) > 59:
-            ao12_pb_text = datetime_ao12_pb.strftime(f'%{digit_char}M:%S.%f')
+            ao12_pb_text = datetime_ao12_pb.strftime(f'%{digit_char}M:%S.%f')[:-4]
         # Format in sec/millisec
         else:
-            ao12_pb_text = datetime_ao12_pb.strftime(f'%{digit_char}S.%f')
+            ao12_pb_text = datetime_ao12_pb.strftime(f'%{digit_char}S.%f')[:-4]
     else:
         ao12_pb_text = "-"
 
-    best_ao12_session_text = AnonymousPro_font_session.render(ao12_pb_text[:-4], True, blue_time_text_colour)
+    best_ao12_session_text = AnonymousPro_font_session.render(ao12_pb_text, True, blue_time_text_colour)
     best_ao12_session_text_rect = best_ao12_session_text.get_rect(midtop = (173, 320))
     screen.blit(best_ao12_session_text, best_ao12_session_text_rect)
 
@@ -143,14 +143,14 @@ def update_current_session_ao5(AnonymousPro_font_session, blue_time_text_colour,
         datetime_ao5 = datetime.datetime.fromtimestamp(ao5)
 
         if int(ao5) > 59:
-            ao5_text = datetime_ao5.strftime(f'%{digit_char}M:%S.%f')
+            ao5_text = datetime_ao5.strftime(f'%{digit_char}M:%S.%f')[:-4]
         # Format in sec/millisec
         else:
-            ao5_text = datetime_ao5.strftime(f'%{digit_char}S.%f')
+            ao5_text = datetime_ao5.strftime(f'%{digit_char}S.%f')[:-4]
     else:
         ao5_text = "-"
 
-    current_ao5_session_text = AnonymousPro_font_session.render(ao5_text[:-4], True, blue_time_text_colour)
+    current_ao5_session_text = AnonymousPro_font_session.render(ao5_text, True, blue_time_text_colour)
     current_ao5_session_text_rect = current_ao5_session_text.get_rect(midtop = (105, 280))
     screen.blit(current_ao5_session_text, current_ao5_session_text_rect)
 
@@ -161,14 +161,14 @@ def update_current_session_ao12(AnonymousPro_font_session, blue_time_text_colour
         datetime_ao12 = datetime.datetime.fromtimestamp(ao12)
 
         if int(ao12) > 59:
-            ao12_text = datetime_ao12.strftime(f'%{digit_char}M:%S.%f')
+            ao12_text = datetime_ao12.strftime(f'%{digit_char}M:%S.%f')[:-4]
         # Format in sec/millisec
         else:
-            ao12_text = datetime_ao12.strftime(f'%{digit_char}S.%f')
+            ao12_text = datetime_ao12.strftime(f'%{digit_char}S.%f')[:-4]
     else:
         ao12_text = "-"
 
-    current_ao12_session_text = AnonymousPro_font_session.render(ao12_text[:-4], True, blue_time_text_colour)
+    current_ao12_session_text = AnonymousPro_font_session.render(ao12_text, True, blue_time_text_colour)
     current_ao12_session_text_rect = current_ao12_session_text.get_rect(midtop = (105, 320))
     screen.blit(current_ao12_session_text, current_ao12_session_text_rect)
 
