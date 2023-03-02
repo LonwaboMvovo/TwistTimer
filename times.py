@@ -120,28 +120,33 @@ def get_records():
     return read_records
 
 
-def add_record(times_list, records):
-    current_date = datetime.date.today()
-    formatted_date = current_date.strftime('%d/%m/%Y')
+def add_record(records, times_list):
+    last_time_info = times_list[str(len(times_list) -1)]
+    last_time = last_time_info["time"]
+    last_ao5 = last_time_info["ao5"]
+    last_ao12 = last_time_info["ao12"]
 
-    ao5 = "-"
-    if len(records.keys()) > 4:
-        last_5_times = [records[t]["time"] for t in list(records.keys())[-5:]]
-        ao5 = round(sum(last_5_times)/5, 2) # ao5 of current solve time
+    record_time = records["time"]
+    record_ao5 = records["ao5"]
+    record_ao12 = records["ao12"]
 
-    ao12 = "-"
-    if len(records.keys()) > 11:
-        last_12_times = [records[t]["time"] for t in list(records.keys())[-12:]]
-        ao12 = round(sum(last_12_times)/12, 2) # ao12 of current solve time
+    if last_time != "-":
+        if (record_time == "-") or (record_time != "-" and last_time < record_time):
+            record_time = last_time
 
-    records[len(records.keys())] = {
-            "date": formatted_date,
-            "scramble": scramble,
-            "state": state,
-            "time": time,
-            "ao5": ao5,
-            "ao12": ao12,
-        }
+    if last_ao5 != "-":
+        if (record_ao5 == "-") or (record_ao5 != "-" and last_ao5 < record_ao5):
+            record_ao5 = last_ao5
+
+    if last_ao12 != "-":
+        if (record_ao12 == "-") or (record_ao12 != "-" and last_ao12 < record_ao12):
+            record_ao12 = last_ao12
+
+    records = {
+        "time": record_time,
+        "ao5": record_ao5,
+        "ao12": record_ao12
+    }
 
     records_json = json.dumps(records, indent=4)
 
