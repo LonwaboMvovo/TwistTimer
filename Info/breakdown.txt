@@ -1,6 +1,2 @@
 Cube timer:
 - fix how averages are calculated by removing fastest and slowest then calculating remaining average like wca
-
-- fix black lines and colours for scramble display
-
-- fix time displays format for minutes and seconds
