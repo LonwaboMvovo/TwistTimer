@@ -13,4 +13,4 @@ if __name__ == '__main__':
         python = executable
         subprocess.check_call([python, '-m', 'pip', 'install', *missing], stdout=subprocess.DEVNULL)
 
-    import solver
+    import program
