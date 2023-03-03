@@ -185,30 +185,28 @@ def add_times_list(times_list, scramble, time, state = "OK"):
     current_date = datetime.date.today()
     formatted_date = current_date.strftime('%d/%m/%Y')
 
-    ao5 = "-"
-    if len(times_list.keys()) > 4:
-        print("yes", times_list.keys())
-        last_5_times = [times_list[t]["time"] for t in list(times_list.keys())[-5:]]
-        last_5_times.remove(min(last_5_times))
-        last_5_times.remove(max(last_5_times))
-        ao5 = round(sum(last_5_times)/3, 2) # ao5 of current solve time
-
-    ao12 = "-"
-    if len(times_list.keys()) > 11:
-        print("yes12", times_list.keys())
-        last_12_times = [times_list[t]["time"] for t in list(times_list.keys())[-12:]]
-        last_12_times.remove(min(last_12_times))
-        last_12_times.remove(max(last_12_times))
-        ao12 = round(sum(last_12_times)/10, 2) # ao12 of current solve time
-
     times_list[len(times_list.keys())] = {
             "date": formatted_date,
             "scramble": scramble,
             "state": state,
             "time": time,
-            "ao5": ao5,
-            "ao12": ao12,
         }
+
+    ao5 = "-"
+    if len(times_list.keys()) > 4:
+        last_5_times = [times_list[t]["time"] for t in list(times_list.keys())[-5:]]
+        last_5_times.remove(min(last_5_times))
+        last_5_times.remove(max(last_5_times))
+        ao5 = round(sum(last_5_times)/3, 2) # ao5 of current solve time
+    times_list[len(times_list.keys())-1]["ao5"] = ao5
+
+    ao12 = "-"
+    if len(times_list.keys()) > 11:
+        last_12_times = [times_list[t]["time"] for t in list(times_list.keys())[-12:]]
+        last_12_times.remove(min(last_12_times))
+        last_12_times.remove(max(last_12_times))
+        ao12 = round(sum(last_12_times)/10, 2) # ao12 of current solve time
+    times_list[len(times_list.keys())-1]["ao12"] = ao12
 
     times_list_json = json.dumps(times_list, indent=4)
 

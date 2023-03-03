@@ -64,7 +64,6 @@ def main():
                     times.add_times_list(read_times_list, scramble, round(solve_time, 2))
 
                     read_times_list = times.get_times_list()
-                    print(len(read_times_list.keys()), read_times_list[str(len(read_times_list.keys()) - 1)]["time"])
                     current_solve_time = read_times_list[str(len(read_times_list.keys()) - 1)]["time"]
                     ao5 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao5"]
                     ao12 = read_times_list[str(len(read_times_list.keys()) - 1)]["ao12"]
@@ -270,4 +269,4 @@ if __name__ == "__main__":
 
     main()
 
-# TODO: fix averages only displaying after 6 for ao5 and 13 for ao12
+# TODO: add black border to yes/no buttons in exit confirmation screen
