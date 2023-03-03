@@ -153,9 +153,11 @@ def main():
 
             screen.fill(blue_time_text_colour, exit_no_bg_rect)
             screen.blit(exit_text_no, exit_text_no_rect)
+            pygame.draw.rect(screen, "black", exit_no_bg_rect, width = 3)
 
             screen.fill(blue_time_text_colour, exit_yes_bg_rect)
             screen.blit(exit_text_yes, exit_text_yes_rect)
+            pygame.draw.rect(screen, "black", exit_yes_bg_rect, width = 3)
 
         pygame.display.update()
 
@@ -216,8 +218,8 @@ if __name__ == "__main__":
     exit_text_rect = exit_text.get_rect(midtop = (screen_width/2 - 90, screen_height/2 - 110))
 
     AnonymousPro_font_exit_question = pygame.font.Font("Fonts/AnonymousPro.ttf", 30)
-    exit_text_question = AnonymousPro_font_exit_question.render("Do you want to exit TwistTimer", True, "black")
-    exit_text_rect_question = exit_text_question.get_rect(midtop = (screen_width/2 - 15, screen_height/2))
+    exit_text_question = AnonymousPro_font_exit_question.render("Do you want to exit TwistTimer?", True, "black")
+    exit_text_rect_question = exit_text_question.get_rect(midtop = (screen_width/2 - 7, screen_height/2))
 
     exit_no_bg_rect = pygame.Rect(screen_width/2 + 30, screen_height/2 + 110, 100, 60)
     exit_text_no = AnonymousPro_font_exit_question.render("No", True, "white")
