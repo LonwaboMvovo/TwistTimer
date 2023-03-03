@@ -1,4 +1,5 @@
-# TwistTimer <img style="display: inline-block;" src="https://user-images.githubusercontent.com/57689939/222676283-8bbc1106-7fcf-465b-b628-20169fef114a.png" height="50">
+<img style="display: inline-block;" src="https://user-images.githubusercontent.com/57689939/222676283-8bbc1106-7fcf-465b-b628-20169fef114a.png" height="50"> # TwistTimer
+
 Rubik's cube scrambler and timer
 
 <img src="https://user-images.githubusercontent.com/57689939/222673159-64f9bfc8-d06c-47d4-b8a3-f50e750043df.png" height="350">
