@@ -13,7 +13,7 @@ Run python main.py to start the program.
 spacebar - start and stop timer <br />
 esc - quit timer <br />
 <br />
-Scramble the cube according to the randomly generated scramble display at the top. You can generate a new scramble by clicking next. You can see if you have scrambled the cube correctly by looking at the cube scramble display. <br />
+Scramble the cube according to the randomly generated scramble display at the top. You can generate new scrambles by clicking the 'next' button. To verify if you have scrambled the cube correctly, look at the cube scramble display. <br />
 Press spacebar to start the timer and on release the timer will start, once you press spacebar again the timer will stop and it will be recorded along with your averages.
 
 ***Acknowledgments*** <br />
