@@ -2,9 +2,13 @@
 
 Rubik's cube scrambler and timer
 
-<img src="https://user-images.githubusercontent.com/57689939/222673159-64f9bfc8-d06c-47d4-b8a3-f50e750043df.png" height="350"> <br />
+<img src="https://user-images.githubusercontent.com/57689939/222673159-64f9bfc8-d06c-47d4-b8a3-f50e750043df.png" height="350">
 
-**Find out just how fast you are at *peeling of the stickers and putting them back in the right place*** <br />
+<br>
+
+**Find out just how fast you are at *peeling of the stickers and putting them back in the right place***
+
+<br>
 
 ***Installation*** <br />
 Clone the repository to your local machine. <br />
